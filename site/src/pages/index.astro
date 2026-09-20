@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { rotulosCanais } from '../lib/rotulos';
+
+const golpes = (await getCollection('golpes', ({ data }) => !data.rascunho)).sort((a, b) =>
+  a.data.titulo.localeCompare(b.data.titulo, 'pt-BR')
+);
+
+const destaques = golpes.slice(0, 3);
+---
+
+<Base titulo="Início">
+  <div class="faixa-alerta">
+    <p class="limite">
+      <strong>Atenção:</strong> Nós nunca pedimos sua senha nem transferência de dinheiro.
+      Se alguém pediu, é golpe. <a href="/ajuda/">Saiba o que fazer</a>.
+    </p>
+  </div>
+
+  <div class="pagina">
+    <h1>Aprenda a se proteger de golpes no celular</h1>
+    <p class="intro">
+      Vídeos curtos e explicações simples para você reconhecer golpes e saber o que fazer.
+    </p>
+
+    <a class="botao-grande" href="/ajuda/">
+      Preciso de ajuda
+      <span class="botao-sub">Caí num golpe ou estou em dúvida sobre uma ligação ou mensagem</span>
+    </a>
+
+    <h2>Golpes mais comuns</h2>
+    <p class="meta">Toque em um golpe para ver a explicação e o passo a passo.</p>
+
+    {destaques.map((golpe) => (
+      <a class="card" href={`/golpes/${golpe.id}/`}>
+        <span class="canal">Canal: {rotulosCanais(golpe.data.canal)}</span>
+        <h3>{golpe.data.titulo}</h3>
+        <p>{golpe.data.resumoCurto}</p>
+      </a>
+    ))}
+
+    <a class="botao-grande secundario" href="/golpes/">Ver todos os golpes</a>
+  </div>
+</Base>

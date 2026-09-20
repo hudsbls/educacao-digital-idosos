@@ -1,0 +1,126 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  titulo: string;
+  descricao?: string;
+}
+
+const {
+  titulo,
+  descricao = 'Portal educativo sobre golpes digitais para pessoas idosas em Timóteo/MG.',
+} = Astro.props;
+
+const caminho = Astro.url.pathname;
+const ehAtual = (prefixo: string) =>
+  prefixo === '/' ? caminho === '/' : caminho.startsWith(prefixo);
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={descricao} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{titulo} · Educação Digital contra Golpes Online</title>
+  </head>
+  <body>
+    <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="cabecalho">
+      <div class="limite topo">
+        <a class="marca" href="/">
+          <span class="marca-nome">Educação Digital</span>
+          <span class="marca-sub">Contra golpes online · Timóteo/MG</span>
+        </a>
+
+        <nav aria-label="Acessibilidade">
+          <div class="acess">
+            <button type="button" class="btn-acess" data-acao="diminuir">Letra menor</button>
+            <button type="button" class="btn-acess" data-acao="aumentar">Letra maior</button>
+            <button type="button" class="btn-acess" data-acao="contraste" aria-pressed="false">Mais contraste</button>
+          </div>
+        </nav>
+      </div>
+
+      <nav class="menu" aria-label="Menu principal">
+        <div class="limite">
+          <ul>
+            <li><a href="/" aria-current={ehAtual('/') ? 'page' : undefined}>Início</a></li>
+            <li><a href="/golpes/" aria-current={ehAtual('/golpes/') ? 'page' : undefined}>Golpes</a></li>
+            <li><a href="/ajuda/" aria-current={ehAtual('/ajuda/') ? 'page' : undefined}>Ajuda</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main id="conteudo">
+      <slot />
+    </main>
+
+    <footer class="rodape">
+      <div class="limite">
+        <ul>
+          <li><a href="/ajuda/">Ajuda</a></li>
+          <li><a href="/golpes/">Golpes</a></li>
+        </ul>
+        <p>Projeto de extensão · Timóteo/MG · ODS 03, 04 e 10</p>
+        <p>Conteúdo provisório, a validar na pesquisa. Atualizado em 20/09/2026.</p>
+      </div>
+    </footer>
+
+    <script>
+      // Controles de acessibilidade: aumentam a letra e alternam alto contraste.
+      // A preferência é lembrada entre as páginas (requisito US-03).
+      const raiz = document.documentElement;
+      const MIN = 16;
+      const MAX = 32;
+      const PASSO = 2;
+      const CHAVE_TAMANHO = 'portal-tamanho';
+      const CHAVE_CONTRASTE = 'portal-contraste';
+
+      function ler(chave) {
+        try { return localStorage.getItem(chave); } catch (e) { return null; }
+      }
+      function gravar(chave, valor) {
+        try { localStorage.setItem(chave, valor); } catch (e) { /* modo restrito */ }
+      }
+
+      function aplicarTamanho(px) {
+        const v = Math.max(MIN, Math.min(MAX, px));
+        raiz.style.fontSize = v + 'px';
+        gravar(CHAVE_TAMANHO, String(v));
+      }
+
+      const salvo = parseInt(ler(CHAVE_TAMANHO) || '', 10);
+      if (!Number.isNaN(salvo)) aplicarTamanho(salvo);
+
+      document.querySelectorAll('[data-acao="aumentar"]').forEach(function (botao) {
+        botao.addEventListener('click', function () {
+          aplicarTamanho(parseInt(getComputedStyle(raiz).fontSize, 10) + PASSO);
+        });
+      });
+
+      document.querySelectorAll('[data-acao="diminuir"]').forEach(function (botao) {
+        botao.addEventListener('click', function () {
+          aplicarTamanho(parseInt(getComputedStyle(raiz).fontSize, 10) - PASSO);
+        });
+      });
+
+      const botaoContraste = document.querySelector('[data-acao="contraste"]');
+      if (botaoContraste) {
+        if (ler(CHAVE_CONTRASTE) === '1') document.body.classList.add('alto-contraste');
+        botaoContraste.setAttribute(
+          'aria-pressed',
+          document.body.classList.contains('alto-contraste') ? 'true' : 'false'
+        );
+        botaoContraste.addEventListener('click', function () {
+          const ativo = document.body.classList.toggle('alto-contraste');
+          gravar(CHAVE_CONTRASTE, ativo ? '1' : '0');
+          botaoContraste.setAttribute('aria-pressed', ativo ? 'true' : 'false');
+        });
+      }
+    </script>
+  </body>
+</html>

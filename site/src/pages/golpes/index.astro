@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { rotulosCanais } from '../../lib/rotulos';
+
+const golpes = (await getCollection('golpes', ({ data }) => !data.rascunho)).sort((a, b) =>
+  a.data.titulo.localeCompare(b.data.titulo, 'pt-BR')
+);
+---
+
+<Base
+  titulo="Golpes digitais"
+  descricao="Lista de golpes digitais explicados em linguagem simples, com o que fazer em cada caso."
+>
+  <div class="pagina">
+    <h1>Golpes digitais</h1>
+    <p class="intro">Escolha um golpe para ver a explicação, como reconhecer e o que fazer.</p>
+    <p class="meta">{golpes.length} golpes publicados até agora.</p>
+
+    {golpes.map((golpe) => (
+      <a class="card" href={`/golpes/${golpe.id}/`}>
+        <span class="canal">Canal: {rotulosCanais(golpe.data.canal)}</span>
+        <h3>{golpe.data.titulo}</h3>
+        <p>{golpe.data.resumoCurto}</p>
+      </a>
+    ))}
+
+    <p class="meta">
+      A busca e os filtros entram na próxima etapa. A lista final de golpes é definida pela pesquisa.
+    </p>
+  </div>
+</Base>
