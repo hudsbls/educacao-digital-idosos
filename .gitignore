@@ -1,0 +1,61 @@
+# =====================================================================
+# Projeto: Educação Digital de Idosos contra Golpes Online (Timóteo/MG)
+#
+# REGRA DE OURO: dados pessoais e mídia pesada NUNCA vão para o Git.
+# Ver docs/GESTAO-E-REQUISITOS.md, Seção 5.3 (cuidados éticos e LGPD).
+# =====================================================================
+
+# --- Dependências e build (Astro / Node) ---
+node_modules/
+dist/
+.astro/
+.output/
+.cache/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# --- Ambiente e segredos ---
+.env
+.env.*
+!.env.example
+.npmrc
+
+# --- DADOS PESSOAIS E MATERIAIS RESTRITOS (LGPD) ---
+# As pastas são mantidas no repositório apenas com o LEIA-ME explicativo.
+# Nenhum arquivo com dados pessoais deve ser versionado.
+pesquisa/dados-brutos/*
+!pesquisa/dados-brutos/LEIA-ME.md
+evidencias/oficinas/*
+!evidencias/oficinas/LEIA-ME.md
+evidencias/depoimentos/*
+!evidencias/depoimentos/LEIA-ME.md
+evidencias/avaliacao/*
+!evidencias/avaliacao/LEIA-ME.md
+producao/midia-mestre/*
+!producao/midia-mestre/LEIA-ME.md
+
+# --- Mídia pesada (arquivos mestres ficam em armazenamento institucional) ---
+*.mp4
+*.mov
+*.mkv
+*.avi
+*.wav
+
+# --- Sistema operacional ---
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# --- OneDrive / Office (arquivos temporários) ---
+~$*
+*.tmp
+
+# --- Editores ---
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# --- Obsidian (estado local do vault, não é conteúdo do projeto) ---
+.obsidian/

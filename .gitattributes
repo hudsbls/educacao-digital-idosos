@@ -1,0 +1,27 @@
+# Normaliza terminadores de linha entre sistemas e evita avisos do Git.
+# Ver: https://git-scm.com/docs/gitattributes
+
+* text=auto
+
+# --- Texto: usar LF, exceto onde a ferramenta exigir CRLF ---
+*.md      text eol=lf
+*.html    text eol=lf
+*.css     text eol=lf
+*.js      text eol=lf
+*.mjs     text eol=lf
+*.json    text eol=lf
+*.yml     text eol=lf
+*.yaml    text eol=lf
+*.vtt     text eol=lf
+*.svg     text eol=lf
+*.ps1     text eol=crlf
+
+# --- Binários: nunca converter ---
+*.png     binary
+*.jpg     binary
+*.jpeg    binary
+*.webp    binary
+*.ico     binary
+*.pdf     binary
+*.mp4     binary
+*.mov     binary
