@@ -2,7 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import Icone from '../../components/Icone.astro';
-import { rotulosCanais, iconeCanal } from '../../lib/rotulos';
+import { rotulosCanais, iconeCanal, classeCanal } from '../../lib/rotulos';
 
 export async function getStaticPaths() {
   const golpes = await getCollection('golpes', ({ data }) => !data.rascunho);
@@ -18,6 +18,16 @@ const outros = (
 
 const dataFormatada = golpe.data.atualizadoEm.toLocaleDateString('pt-BR', { timeZone: 'UTC' });
 const video = golpe.data.video;
+const videoPublicado = Boolean(video && video.youtubeId);
+
+/** "75" -> "1 min e 15 s" */
+const duracaoTexto = (() => {
+  if (!video) return '';
+  const min = Math.floor(video.duracaoSegundos / 60);
+  const s = video.duracaoSegundos % 60;
+  if (min === 0) return `${s} s`;
+  return s === 0 ? `${min} min` : `${min} min e ${s} s`;
+})();
 ---
 
 <Base titulo={golpe.data.titulo} descricao={golpe.data.resumoCurto}>
@@ -29,13 +39,23 @@ const video = golpe.data.video;
       Última atualização: {dataFormatada} · Canal: {rotulosCanais(golpe.data.canal)}
     </p>
 
+    {
+      videoPublicado && (
+        <ul class="chips">
+          <li class="chip"><Icone nome="relogio" tamanho={18} /> {duracaoTexto}</li>
+          <li class="chip"><Icone nome="legenda" tamanho={18} /> Com legendas</li>
+          <li class="chip"><Icone nome="documento" tamanho={18} /> Com texto do vídeo</li>
+        </ul>
+      )
+    }
+
     <a class="botao-grande secundario" href="#transcricao">Ir direto para o texto</a>
 
     {
-      video && video.youtubeId ? (
+      videoPublicado ? (
         <div class="video">
           <iframe
-            src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}?rel=0&cc_load_policy=1&cc_lang_pref=pt&hl=pt-BR&playsinline=1`}
+            src={`https://www.youtube-nocookie.com/embed/${video?.youtubeId}?rel=0&cc_load_policy=1&cc_lang_pref=pt&hl=pt-BR&playsinline=1`}
             title={`Vídeo: ${golpe.data.titulo}`}
             allow="encrypted-media; picture-in-picture"
             allowfullscreen
@@ -96,13 +116,16 @@ const video = golpe.data.video;
         <>
           <h2>Outros golpes</h2>
           {outros.map((outro) => (
-            <a class="card" href={`/golpes/${outro.id}/`}>
-              <span class="card-topo">
-                <Icone nome={iconeCanal(outro.data.canal)} tamanho={26} />
-                <span class="canal">Canal: {rotulosCanais(outro.data.canal)}</span>
+            <a class={`card ${classeCanal(outro.data.canal)}`} href={`/golpes/${outro.id}/`}>
+              <span class="card-icone">
+                <Icone nome={iconeCanal(outro.data.canal)} tamanho={28} />
               </span>
-              <h3>{outro.data.titulo}</h3>
-              <p>{outro.data.resumoCurto}</p>
+              <div class="card-texto">
+                <span class="canal">Canal: {rotulosCanais(outro.data.canal)}</span>
+                <h3>{outro.data.titulo}</h3>
+                <p>{outro.data.resumoCurto}</p>
+              </div>
+              <span class="card-seta"><Icone nome="seta" tamanho={24} /></span>
             </a>
           ))}
         </>

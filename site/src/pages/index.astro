@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import Icone from '../components/Icone.astro';
-import { rotulosCanais, iconeCanal } from '../lib/rotulos';
+import { rotulosCanais, iconeCanal, classeCanal } from '../lib/rotulos';
 
 const golpes = (await getCollection('golpes', ({ data }) => !data.rascunho)).sort((a, b) =>
   a.data.titulo.localeCompare(b.data.titulo, 'pt-BR')
@@ -21,10 +21,16 @@ const destaques = golpes.slice(0, 3);
   </div>
 
   <div class="pagina">
-    <h1>Aprenda a se proteger de golpes no celular</h1>
-    <p class="intro">
-      Vídeos curtos e explicações simples para você reconhecer golpes e saber o que fazer.
-    </p>
+    <section class="saudacao">
+      <div>
+        <p class="saudacao-ola">Olá!</p>
+        <h1 class="saudacao-titulo">Aqui você aprende a se proteger.</h1>
+        <p class="saudacao-sub">
+          Vídeos, explicações simples e um passo a passo do que fazer depois de um golpe.
+        </p>
+      </div>
+      <span class="saudacao-icone"><Icone nome="escudo" tamanho={56} /></span>
+    </section>
 
     <a class="botao-grande" href="/ajuda/">
       Preciso de ajuda
@@ -35,16 +41,25 @@ const destaques = golpes.slice(0, 3);
     <p class="meta">Toque em um golpe para ver a explicação e o passo a passo.</p>
 
     {destaques.map((golpe) => (
-      <a class="card" href={`/golpes/${golpe.id}/`}>
-        <span class="card-topo">
-          <Icone nome={iconeCanal(golpe.data.canal)} tamanho={26} />
+      <a class={`card ${classeCanal(golpe.data.canal)}`} href={`/golpes/${golpe.id}/`}>
+        <span class="card-icone"><Icone nome={iconeCanal(golpe.data.canal)} tamanho={28} /></span>
+        <div class="card-texto">
           <span class="canal">Canal: {rotulosCanais(golpe.data.canal)}</span>
-        </span>
-        <h3>{golpe.data.titulo}</h3>
-        <p>{golpe.data.resumoCurto}</p>
+          <h3>{golpe.data.titulo}</h3>
+          <p>{golpe.data.resumoCurto}</p>
+        </div>
+        <span class="card-seta"><Icone nome="seta" tamanho={24} /></span>
       </a>
     ))}
 
     <a class="botao-grande secundario" href="/golpes/">Ver todos os golpes</a>
+
+    <div class="reconforto">
+      <Icone nome="escudo" tamanho={28} />
+      <p>
+        <strong>Você não está sozinho(a).</strong>
+        Cair em um golpe pode acontecer com qualquer pessoa. Há canais oficiais que podem ajudar.
+      </p>
+    </div>
   </div>
 </Base>

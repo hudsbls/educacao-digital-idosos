@@ -191,28 +191,35 @@ Toda página de golpe e tutorial responde, nesta ordem:
 
 ### 8.1 Paleta adotada (resolve a decisão D8)
 
-Estética **quente e acolhedor**: ocre, creme e verde-oliva, com formas arredondadas e mais espaço
-em branco. A razão não é só estética — quem cai em golpe costuma sentir vergonha, e um visual de
-"sistema oficial" intimida justamente quem mais precisa de ajuda.
+Estética **acolhedora e colorida**, inspirada na linguagem visual de aplicativos: azul-marinho
+como cor de confiança, dourado para destaque, cartões em tons pastel com ícone em evidência e
+passos com cores diferentes. A razão não é só estética — quem cai em golpe sente vergonha, e um
+visual de "sistema oficial" intimida justamente quem mais precisa de ajuda.
 
-**Por que ocre e não terracota:** o vermelho é reservado **exclusivamente** ao aviso de segurança.
-Terracota (`#9A3412`) e o vermelho do alerta (`#991B1B`) têm a mesma luminosidade e o mesmo matiz
-— a marca ficaria parecida com o alerta, e o alerta perderia força. O ocre mantém a temperatura
-quente e libera o vermelho para significar perigo.
+**Adaptação obrigatória da referência visual:** a inspiração usa **texto colorido sobre fundo
+pastel**, e vários desses pares reprovam no contraste. Aqui a cor vai no **ícone** e no **fundo**,
+e o **texto permanece escuro** — garantindo 7:1 ou mais em todos os cartões pastel.
+
+**Por que azul-marinho e não terracota:** o vermelho é reservado **exclusivamente** ao aviso de
+segurança. Terracota (`#9A3412`) e o vermelho do alerta (`#991B1B`) têm a mesma luminosidade e o
+mesmo matiz — a marca ficaria parecida com o alerta, e o alerta perderia força.
 
 | Token | Cor | Uso | Contraste verificado |
 |---|---|---|---|
-| `--tinta` | `#2B1D14` | Texto principal | **16,3:1** sobre branco |
-| `--tinta-suave` | `#5C4A3D` | Texto secundário | **8,4:1** sobre branco |
-| `--primaria` | `#7C4A03` | Cabeçalho, títulos, botões, bordas | **7,4:1** sobre branco |
-| `--primaria-texto` | `#FFFFFF` | Texto sobre a cor principal | **7,4:1** |
-| `--secundaria` | `#44521F` | Rótulos de canal e ícones | **8,5:1** sobre branco |
-| `--borda` | `#7A8B4F` | Separadores estruturais | **3,7:1** sobre branco |
+| `--tinta` | `#14213D` | Texto principal | **16,0:1** sobre branco |
+| `--tinta-suave` | `#3A4A63` | Texto secundário | **9,0:1** sobre branco |
+| `--primaria` | `#1B3A6B` | Cabeçalho, títulos, botões | **11,3:1** sobre branco |
+| `--primaria-texto` | `#FFFFFF` | Texto sobre o azul-marinho | **11,3:1** |
+| `--dourado` | `#FFC93C` | Destaque e realce | **7,3:1** com texto azul-marinho |
 | `--alerta` | `#991B1B` | Fundo da faixa de aviso de segurança | **8,3:1** com texto branco |
 | `--alerta-texto` | `#FFFFFF` | Texto e selo da faixa de aviso | **8,3:1** |
-| `--rodape` | `#3B2314` | Fundo do rodapé | **14,6:1** com texto branco |
-| `--foco` | `#7C4A03` | Anel de foco em fundo claro | **7,4:1** sobre branco |
-| `--foco-claro` | `#FFD400` | Anel de foco sobre o rodapé | **10,2:1** sobre o rodapé |
+| `--rodape` | `#12294D` | Fundo do rodapé | **14,5:1** com texto branco |
+| `--foco` | `#1B3A6B` | Anel de foco em fundo claro | **11,3:1** sobre branco |
+| `--foco-claro` | `#FFD400` | Anel de foco sobre o rodapé | **10,1:1** sobre o rodapé |
+
+**Cores de apoio (fundo pastel + ícone):** azul, verde, âmbar, roxo e teal, associadas ao **canal**
+do golpe (telefone, WhatsApp, SMS, e-mail, internet). A cor é um apoio visual: o **texto escuro**
+sobre o pastel mantém 7:1 ou mais, e o rótulo em texto sempre acompanha o ícone.
 
 **Faixa de aviso — o elemento de maior alerta da página.** O significado é carregado pelo
 **selo textual** ("Atenção" na página inicial, "Urgente" na página de ajuda); a cor apenas
@@ -231,9 +238,11 @@ projeto de não rastrear usuários. Há fallback para as fontes do sistema.
 | Decisão | Valor | Por quê |
 |---|---|---|
 | Cantos arredondados | 16px | Aparência acolhedora, menos "sistema" |
+| Cartões pastel com ícone em destaque | Ícone de 52px | Escaneamento visual rápido |
+| Passos com cores diferentes | 4 cores em ciclo | Ajuda a localizar onde se parou; o **número** é a informação |
+| Caixa de acolhimento | — | Reduz a vergonha de quem caiu em golpe |
 | Alvos de toque | 48px (acima do mínimo de 44px) | Toque impreciso é comum |
 | Altura de linha | 1,65 | Mais respiro na leitura |
-| Espaçamento entre blocos | Ampliado | Reduz sobrecarga visual |
 | Ícones | SVG embutido, sempre decorativo | Reforçam o texto, nunca o substituem |
 
 > **Regra prática:** para "chamar atenção" com cor, aumente a **área colorida** (blocos, faixas,
@@ -241,7 +250,7 @@ projeto de não rastrear usuários. Há fallback para as fontes do sistema.
 > enxerga pouco.
 
 **Verificação automatizada:** o comando `npm run contraste` (dentro de `site/`) checa
-**20 pares de cor** e falha se algum ficar abaixo do piso do projeto. Deve ser executado antes
+**34 pares de cor** e falha se algum ficar abaixo do piso do projeto. Deve ser executado antes
 de qualquer publicação.
 
 **Regra de ouro da cor:** nenhuma informação é transmitida **só por cor**. Todo estado, alerta ou
@@ -253,7 +262,7 @@ erro tem também texto ou rótulo.
 
 ### 9.1 Automatizados (rápidos, insuficientes)
 - **axe DevTools** / **Lighthouse** em todas as páginas → zero erros críticos.
-- `npm run contraste` (em `site/`) → confere os 20 pares de cor da paleta.
+- `npm run contraste` (em `site/`) → confere os 34 pares de cor da paleta.
 - Validador de HTML.
 - **Atenção:** ferramentas automáticas detectam ~30–40% dos problemas. Nunca aprovar só com elas.
 

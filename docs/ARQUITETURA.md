@@ -510,7 +510,7 @@ preço é a dependência de plataforma de terceiros, mitigada pelos controles ab
 | D5 | Coleta de dados no portal | **Decidida:** nenhuma | Reduz LGPD e risco de segurança |
 | D6 | Analytics | Pendente | Recomendação: sem cookies ou nenhum |
 | D7 | Licença do conteúdo | Pendente | Recomendação: Creative Commons para permitir reuso |
-| D8 | Identidade visual e marca | **DECIDIDA: estética quente e acolhedor — ocre, creme e oliva, fonte Atkinson Hyperlegible; vermelho exclusivo do alerta** | 20 pares de contraste verificados por script (`npm run contraste`); ver `ACESSIBILIDADE.md`, 8.1 a 8.3 |
+| D8 | Identidade visual e marca | **DECIDIDA: estética acolhedora e colorida — azul-marinho, dourado e cartões pastel; fonte Atkinson Hyperlegible; vermelho exclusivo do alerta** | 34 pares de contraste verificados por script (`npm run contraste`); ver `ACESSIBILIDADE.md`, 8.1 a 8.3 |
 | D9 | Abordagem de gestão | **DECIDIDA: Kanban** | Fluxo contínuo de conteúdo + marcos acadêmicos (ver `GESTAO-E-REQUISITOS.md`, 1) |
 
 ---

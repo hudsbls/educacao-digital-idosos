@@ -21,6 +21,9 @@ import Icone from '../components/Icone.astro';
     <h2>O que fazer agora</h2>
     <ol class="passos">
       <li>
+        <strong>Pare e respire.</strong> Não faça mais nenhuma ação e não responda a mensagens.
+      </li>
+      <li>
         <strong>Ligue para o banco.</strong> Use o número que está no seu cartão ou no aplicativo
         oficial. Peça o bloqueio e diga que você não fez aquela compra.
       </li>
@@ -37,6 +40,15 @@ import Icone from '../components/Icone.astro';
       </li>
     </ol>
 
+    <div class="reconforto">
+      <Icone nome="escudo" tamanho={28} />
+      <p>
+        <strong>Você não está sozinho(a).</strong>
+        Cair em um golpe pode acontecer com qualquer pessoa. Não é culpa sua, e existem canais
+        oficiais que podem ajudar.
+      </p>
+    </div>
+
     <h2>Se você não perdeu dinheiro</h2>
     <ol class="passos">
       <li>Não clique em nada e não responda mais.</li>
@@ -47,22 +59,22 @@ import Icone from '../components/Icone.astro';
     <h2>Canais oficiais</h2>
     <ul class="canais">
       <li>
-        <div class="canais-icone"><Icone nome="telefone" tamanho={26} /></div>
-        <div class="canais-texto">
+        <div class="canais-icone"><Icone nome="telefone" tamanho={28} /></div>
+        <div>
           <strong>Seu banco</strong>
           <span>Bloquear cartão, contestar transferência e registrar a fraude. Use o telefone do cartão.</span>
         </div>
       </li>
       <li>
-        <div class="canais-icone"><Icone nome="alerta" tamanho={26} /></div>
-        <div class="canais-texto">
+        <div class="canais-icone"><Icone nome="alerta" tamanho={28} /></div>
+        <div>
           <strong>Polícia — 190</strong>
           <span>Ligue agora, se houver perigo neste momento ou alguém em risco. É a emergência.</span>
         </div>
       </li>
       <li>
-        <div class="canais-icone"><Icone nome="documento" tamanho={26} /></div>
-        <div class="canais-texto">
+        <div class="canais-icone"><Icone nome="documento" tamanho={28} /></div>
+        <div>
           <strong>Polícia Civil — 197 e Delegacia Virtual</strong>
           <span>
             Ligue com calma, depois, para registrar a denúncia e investigar o crime. Não é para
@@ -71,15 +83,15 @@ import Icone from '../components/Icone.astro';
         </div>
       </li>
       <li>
-        <div class="canais-icone"><Icone nome="ajuda" tamanho={26} /></div>
-        <div class="canais-texto">
+        <div class="canais-icone"><Icone nome="ajuda" tamanho={28} /></div>
+        <div>
           <strong>Procon — 151</strong>
           <span>Para problemas de compra, cobrança indevida e empresa que não entrega.</span>
         </div>
       </li>
       <li>
-        <div class="canais-icone"><Icone nome="pessoas" tamanho={26} /></div>
-        <div class="canais-texto">
+        <div class="canais-icone"><Icone nome="pessoas" tamanho={28} /></div>
+        <div>
           <strong>Disque 100</strong>
           <span>Para denunciar violência ou desrespeito aos direitos da pessoa idosa.</span>
         </div>

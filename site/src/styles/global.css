@@ -1,66 +1,70 @@
 /* =====================================================================
    Portal — Educação Digital contra Golpes Online (Timóteo/MG)
 
-   ESTÉTICA "quente e acolhedor" (decisão D8)
-   Ocre, creme e verde-oliva, formas arredondadas e mais respiro.
+   ESTÉTICA "acolhedora e colorida" (decisão D8)
+   Inspirada na linguagem visual de aplicativo: azul-marinho como cor de
+   confiança, dourado para destaque, cartões em tons pastel com ícone em
+   evidência, passos com cores diferentes e caixa de acolhimento.
 
-   Por que esta direção: quem cai em golpe costuma sentir vergonha. Um
-   visual de "sistema oficial" intimida e afasta justamente quem precisa
-   de ajuda. Cores quentes e formas suaves reduzem essa barreira sem
-   abrir mão de nada em acessibilidade.
+   ADAPTAÇÃO IMPORTANTE: a referência usa texto colorido sobre pastel.
+   Isso reprova no contraste do projeto. Aqui a cor vai no ÍCONE e no
+   FUNDO; o texto permanece escuro (7:1 garantido em todos os pastéis).
 
-   POR QUE OCRE E NÃO TERRACOTA: o vermelho é reservado EXCLUSIVAMENTE ao
-   aviso de segurança. Terracota (#9A3412) e o vermelho do alerta
-   (#991B1B) têm a mesma luminosidade e o mesmo matiz — a marca ficaria
-   parecida com o alerta e o alerta perderia força. O ocre mantém a
-   temperatura quente e libera o vermelho para significar perigo.
-
-   TIPOGRAFIA: Atkinson Hyperlegible, desenhada pelo Braille Institute
-   para leitores com baixa visão — diferencia caracteres que costumam se
-   confundir (I, l, 1 / O, 0). Auto-hospedada, sem requisição a terceiros.
+   TIPOGRAFIA: Atkinson Hyperlegible (Braille Institute), para leitores
+   com baixa visão. Auto-hospedada, sem requisição a terceiros.
 
    PALETA — contrastes verificados por `npm run contraste`:
-     texto principal    #2B1D14 sobre #FFFFFF ....... 16,3:1
-     texto secundário   #5C4A3D sobre #FFFFFF .......  8,4:1
-     ocre (marca)       #7C4A03 sobre #FFFFFF .......  7,4:1
-     texto em botão     #FFFFFF sobre #7C4A03 .......  7,4:1
-     oliva              #44521F sobre #FFFFFF .......  8,5:1
+     texto principal    #14213D sobre #FFFFFF ....... 16,0:1
+     texto secundário   #3A4A63 sobre #FFFFFF .......  9,0:1
+     azul-marinho       #1B3A6B sobre #FFFFFF ....... 11,3:1
+     dourado            #1B3A6B sobre #FFC93C .......  7,3:1
      aviso              #FFFFFF sobre #991B1B .......  8,3:1
-     borda oliva        #7A8B4F sobre #FFFFFF .......  3,7:1
-     rodapé             #FFFFFF sobre #3B2314 ....... 14,6:1
+     rodapé             #FFFFFF sobre #12294D ....... 15,7:1
 
-   Regras: nenhuma informação só por cor (o aviso tem selo textual);
-   o vermelho nunca é cor principal.
+   Regras: nenhuma informação só por cor; o vermelho é exclusivo do aviso
+   de segurança, sempre com selo textual.
    ===================================================================== */
 
 :root {
   /* Texto */
-  --tinta: #2b1d14;
-  --tinta-suave: #5c4a3d;
+  --tinta: #14213d;
+  --tinta-suave: #3a4a63;
 
   /* Superfícies */
   --papel: #ffffff;
-  --fundo: #fbf3e7;
-  --cinza: #f5ebdb;
+  --fundo: #f7f9fc;
+  --cinza: #eef3fa;
 
-  /* Cor principal: ocre (ações, cabeçalho, bordas) */
-  --primaria: #7c4a03;
+  /* Cor principal: azul-marinho (confiança) */
+  --primaria: #1b3a6b;
   --primaria-texto: #ffffff;
 
-  /* Cor secundária: verde-oliva (rótulos e estrutura) */
-  --secundaria: #44521f;
-  --borda: #7a8b4f;
+  /* Destaque: dourado */
+  --dourado: #ffc93c;
+  --dourado-texto: #1b3a6b;
+
+  /* Cores de apoio (usadas no ícone e no fundo do cartão) */
+  --azul: #1b5fbf;
+  --azul-claro: #e7f0fc;
+  --verde: #1f7a44;
+  --verde-claro: #e4f5e9;
+  --ambar: #6e4100;
+  --ambar-claro: #fdf1d6;
+  --roxo: #6b3fa0;
+  --roxo-claro: #efe8fb;
+  --teal: #0b5257;
+  --teal-claro: #e0f2f3;
 
   /* Aviso de segurança — vermelho reservado só para isto */
   --alerta: #991b1b;
   --alerta-texto: #ffffff;
 
   /* Rodapé */
-  --rodape: #3b2314;
+  --rodape: #12294d;
   --rodape-texto: #ffffff;
 
   /* Foco */
-  --foco: #7c4a03;
+  --foco: #1b3a6b;
   --foco-claro: #ffd400;
 
   --base: 20px;
@@ -68,7 +72,8 @@
   --raio-pill: 999px;
 }
 
-/* Modo "Mais contraste": preto, branco e amarelo — máximo contraste. */
+/* Modo "Mais contraste": preto, branco e amarelo — máximo contraste.
+   As cores de apoio são neutralizadas: nenhuma informação se perde. */
 body.alto-contraste {
   --tinta: #ffffff;
   --tinta-suave: #f2f2f2;
@@ -77,8 +82,18 @@ body.alto-contraste {
   --cinza: #111111;
   --primaria: #ffffff;
   --primaria-texto: #000000;
-  --secundaria: #ffffff;
-  --borda: #ffffff;
+  --dourado: #ffd400;
+  --dourado-texto: #000000;
+  --azul: #ffffff;
+  --azul-claro: #000000;
+  --verde: #ffffff;
+  --verde-claro: #000000;
+  --ambar: #ffffff;
+  --ambar-claro: #000000;
+  --roxo: #ffffff;
+  --roxo-claro: #000000;
+  --teal: #ffffff;
+  --teal-claro: #000000;
   --alerta: #ffd400;
   --alerta-texto: #000000;
   --rodape: #000000;
@@ -118,7 +133,6 @@ a { color: var(--tinta); }
   border-radius: 6px;
 }
 
-/* Link de pular: escondido até receber foco pelo teclado. */
 .pular {
   position: absolute;
   left: -9999px;
@@ -174,7 +188,6 @@ a { color: var(--tinta); }
 }
 .acess { display: flex; gap: .5rem; flex-wrap: wrap; }
 
-/* Botões "fantasma": o fundo é o próprio cabeçalho colorido. */
 .btn-acess {
   min-height: 48px;
   padding: .35rem .85rem;
@@ -189,13 +202,11 @@ a { color: var(--tinta); }
 }
 .btn-acess:hover { background: rgba(255, 255, 255, .16); }
 
-/* Sobre o cabeçalho colorido o anel de foco precisa ser claro. */
 .cabecalho :focus-visible { outline-color: var(--primaria-texto); }
 
-/* Barra de menu clara, fechada por uma linha oliva. */
 .menu {
   background: var(--papel);
-  border-bottom: 3px solid var(--borda);
+  border-bottom: 3px solid var(--primaria);
 }
 .menu ul {
   list-style: none;
@@ -220,9 +231,9 @@ a { color: var(--tinta); }
 
 /* -------------------------------- Conteúdo ------------------------------ */
 /* Faixa de aviso de segurança — o alerta mais forte da página.
-   O selo textual ("Atenção"/"Urgente") é o que carrega o significado:
-   a cor apenas reforça. Foi o selo que resolveu o problema encontrado nos
-   wireframes, em que a faixa escura parecia um botão. */
+   O selo textual ("Atenção"/"Urgente") carrega o significado: a cor
+   apenas reforça. Foi o selo que resolveu o problema dos wireframes,
+   em que a faixa escura parecia um botão. */
 .faixa-alerta {
   background: var(--alerta);
   color: var(--alerta-texto);
@@ -241,8 +252,6 @@ a { color: var(--tinta); }
   margin-right: .5rem;
 }
 .faixa-alerta a { color: var(--alerta-texto); text-decoration: underline; }
-
-/* Sobre o vermelho, o anel de foco da marca não aparece. */
 .faixa-alerta :focus-visible { outline-color: var(--alerta-texto); }
 
 .pagina {
@@ -258,6 +267,23 @@ h3 { font-size: 1.1rem; margin: 0 0 .35rem; }
 p { margin: 0 0 1.1rem; }
 .intro { font-size: 1.08rem; color: var(--tinta-suave); margin-bottom: 1.5rem; }
 .meta { font-size: .88rem; color: var(--tinta-suave); }
+
+/* Cartão de saudação — o "Olá!" da tela inicial. */
+.saudacao {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--primaria);
+  color: var(--primaria-texto);
+  border-radius: var(--raio);
+  padding: 1.5rem 1.35rem;
+  margin-bottom: 1.75rem;
+}
+.saudacao-ola { margin: 0; font-size: 1.05rem; font-weight: 700; }
+.saudacao-titulo { margin: .25rem 0 .5rem; font-size: 1.45rem; font-weight: 700; line-height: 1.25; color: var(--primaria-texto); }
+.saudacao-sub { margin: 0; font-size: .95rem; }
+.saudacao-icone { color: var(--dourado); flex: none; }
 
 .botao-grande {
   display: block;
@@ -275,33 +301,54 @@ p { margin: 0 0 1.1rem; }
 .botao-grande.secundario { background: var(--papel); color: var(--primaria); }
 .botao-sub { display: block; font-size: .92rem; font-weight: 400; margin-top: .5rem; }
 
+/* --------------------------- Cartões de conteúdo ------------------------ */
+/* O cartão assume a cor do canal (fundo pastel + ícone colorido).
+   O TEXTO continua escuro: nos pastéis ele mantém 7:1 ou mais. */
 .card {
-  display: block;
-  border: 2px solid var(--primaria);
-  border-radius: var(--raio);
-  padding: 1.25rem;
-  margin: 1.5rem 0;
-  text-decoration: none;
-  background: var(--papel);
-}
-.card:hover { background: var(--cinza); }
-.card-topo {
   display: flex;
-  align-items: center;
-  gap: .5rem;
-  margin-bottom: .5rem;
-  color: var(--secundaria);
+  align-items: flex-start;
+  gap: 1rem;
+  border: 2px solid transparent;
+  border-radius: var(--raio);
+  padding: 1.15rem 1.25rem;
+  margin: 1.1rem 0;
+  text-decoration: none;
+  background: var(--cor-fundo, var(--papel));
 }
+.card:hover { border-color: var(--cor-icone, var(--primaria)); }
+.card-icone {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: var(--papel);
+  color: var(--cor-icone, var(--primaria));
+}
+.card-texto { flex: 1 1 auto; min-width: 0; }
 .card p { margin: 0; color: var(--tinta-suave); }
-/* Canal é informação, não aba. */
-.card .canal { font-size: .9rem; font-weight: 700; }
+.card .canal {
+  display: block;
+  font-size: .85rem;
+  font-weight: 700;
+  color: var(--tinta-suave);
+  margin-bottom: .2rem;
+}
+.card-seta { color: var(--cor-icone, var(--primaria)); align-self: center; }
 
+.canal-azul { --cor-icone: var(--azul); --cor-fundo: var(--azul-claro); }
+.canal-verde { --cor-icone: var(--verde); --cor-fundo: var(--verde-claro); }
+.canal-ambar { --cor-icone: var(--ambar); --cor-fundo: var(--ambar-claro); }
+.canal-roxo { --cor-icone: var(--roxo); --cor-fundo: var(--roxo-claro); }
+.canal-teal { --cor-icone: var(--teal); --cor-fundo: var(--teal-claro); }
+
+/* ------------------------------- Passos --------------------------------- */
 .passos { list-style: none; counter-reset: passo; padding: 0; margin: 0; }
 .passos li {
   counter-increment: passo;
   position: relative;
-  padding: 1.25rem 1.25rem 1.25rem 4.25rem;
-  border: 2px solid var(--primaria);
+  padding: 1.25rem 1.25rem 1.25rem 4.5rem;
+  background: var(--cinza);
   border-radius: var(--raio);
   margin: 1rem 0;
 }
@@ -310,32 +357,51 @@ p { margin: 0 0 1.1rem; }
   position: absolute;
   left: 1rem;
   top: 1.1rem;
-  width: 2.25rem;
-  height: 2.25rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 50%;
-  background: var(--primaria);
-  color: var(--primaria-texto);
   display: grid;
   place-items: center;
   font-weight: 700;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
 }
+/* Cada passo com uma cor — a informação é o NÚMERO, a cor só ajuda a
+   localizar visualmente onde se parou. */
+.passos li:nth-child(4n + 1)::before { background: var(--dourado); color: var(--dourado-texto); }
+.passos li:nth-child(4n + 2)::before { background: var(--azul); color: #ffffff; }
+.passos li:nth-child(4n + 3)::before { background: var(--verde); color: #ffffff; }
+.passos li:nth-child(4n + 4)::before { background: var(--roxo); color: #ffffff; }
 
 .lista-sinais { padding-left: 1.5rem; }
 .lista-sinais li { margin-bottom: .6rem; }
 
+/* ------------------------- Canais e acolhimento ------------------------- */
 .canais { list-style: none; padding: 0; margin: 0; }
 .canais li {
   display: flex;
-  gap: .85rem;
-  border: 2px solid var(--borda);
+  gap: 1rem;
+  background: var(--cinza);
   border-radius: var(--raio);
-  padding: 1rem 1.1rem;
+  padding: 1.1rem 1.25rem;
   margin-bottom: 1rem;
 }
-.canais-icone { color: var(--secundaria); margin-top: .2rem; }
+.canais-icone { color: var(--primaria); margin-top: .15rem; }
 .canais strong { display: block; font-size: 1.1rem; }
 .canais span { color: var(--tinta-suave); font-size: .92rem; }
+
+/* Caixa de acolhimento: reduz a vergonha de quem caiu em golpe. */
+.reconforto {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  background: var(--azul-claro);
+  border-radius: var(--raio);
+  padding: 1.15rem 1.25rem;
+  margin: 1.5rem 0;
+}
+.reconforto .icone { color: var(--azul); margin-top: .15rem; }
+.reconforto p { margin: 0; }
+.reconforto strong { display: block; }
 
 /* ------------------------------- Vídeo ---------------------------------- */
 .video {
@@ -351,16 +417,30 @@ p { margin: 0 0 1.1rem; }
 
 .aviso-video {
   display: flex;
-  gap: .85rem;
+  gap: 1rem;
   align-items: flex-start;
-  border: 2px dashed var(--borda);
-  border-radius: var(--raio);
-  padding: 1.1rem 1.25rem;
-  color: var(--tinta-suave);
   background: var(--cinza);
+  border-radius: var(--raio);
+  padding: 1.15rem 1.25rem;
+  color: var(--tinta-suave);
   margin: 1.5rem 0;
 }
-.aviso-video .icone { color: var(--secundaria); margin-top: .15rem; }
+.aviso-video .icone { color: var(--primaria); margin-top: .15rem; }
+
+/* Etiquetas de informação (duração, legenda). */
+.chips { list-style: none; display: flex; flex-wrap: wrap; gap: .5rem; padding: 0; margin: 0 0 1.25rem; }
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  background: var(--cinza);
+  border-radius: var(--raio-pill);
+  padding: .35rem .85rem;
+  font-size: .88rem;
+  font-weight: 700;
+  color: var(--tinta);
+}
+.chip .icone { color: var(--primaria); }
 
 /* -------------------------------- Ações --------------------------------- */
 .acoes { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1.25rem 0; }
@@ -397,13 +477,13 @@ summary {
 }
 
 /* ------------------------------ Transcrição ----------------------------- */
-.transcricao { border-top: 3px solid var(--borda); margin-top: 2.5rem; padding-top: 1.5rem; }
+.transcricao { border-top: 3px solid var(--cinza); margin-top: 2.5rem; padding-top: 1.5rem; }
 
 /* -------------------------------- Rodapé -------------------------------- */
 .rodape {
   background: var(--rodape);
   color: var(--rodape-texto);
-  border-top: 4px solid var(--primaria);
+  border-top: 4px solid var(--dourado);
   margin-top: 3.5rem;
 }
 .rodape a { color: var(--rodape-texto); text-decoration: underline; }
@@ -411,5 +491,4 @@ summary {
 .rodape ul { list-style: none; padding: 0; margin: 0 0 1.25rem; display: flex; flex-wrap: wrap; gap: 1.25rem; }
 .rodape p { margin: .4rem 0; font-size: .92rem; }
 
-/* O anel de foco da marca sumiria sobre o rodapé escuro. */
 .rodape :focus-visible { outline-color: var(--foco-claro); }

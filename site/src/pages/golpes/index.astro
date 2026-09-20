@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import Icone from '../../components/Icone.astro';
-import { rotulosCanais, iconeCanal } from '../../lib/rotulos';
+import { rotulosCanais, iconeCanal, classeCanal } from '../../lib/rotulos';
 
 const golpes = (await getCollection('golpes', ({ data }) => !data.rascunho)).sort((a, b) =>
   a.data.titulo.localeCompare(b.data.titulo, 'pt-BR')
@@ -19,13 +19,14 @@ const golpes = (await getCollection('golpes', ({ data }) => !data.rascunho)).sor
     <p class="meta">{golpes.length} golpes publicados até agora.</p>
 
     {golpes.map((golpe) => (
-      <a class="card" href={`/golpes/${golpe.id}/`}>
-        <span class="card-topo">
-          <Icone nome={iconeCanal(golpe.data.canal)} tamanho={26} />
+      <a class={`card ${classeCanal(golpe.data.canal)}`} href={`/golpes/${golpe.id}/`}>
+        <span class="card-icone"><Icone nome={iconeCanal(golpe.data.canal)} tamanho={28} /></span>
+        <div class="card-texto">
           <span class="canal">Canal: {rotulosCanais(golpe.data.canal)}</span>
-        </span>
-        <h3>{golpe.data.titulo}</h3>
-        <p>{golpe.data.resumoCurto}</p>
+          <h3>{golpe.data.titulo}</h3>
+          <p>{golpe.data.resumoCurto}</p>
+        </div>
+        <span class="card-seta"><Icone nome="seta" tamanho={24} /></span>
       </a>
     ))}
 
