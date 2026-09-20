@@ -240,6 +240,10 @@ Descrever em baixa fidelidade, com validação junto ao público-alvo:
 
 ### 4.2 Cronograma com marcos e responsabilidades
 
+> A **sequência detalhada das atividades**, com a duração de cada etapa em dias, está em
+> [`cronograma.html`](cronograma.html) — documento acessível (lista ordenada, sem dependência de
+> cor) e pronto para imprimir em PDF.
+
 Datas de referência (início em out/2026). Ajustar conforme calendário acadêmico da instituição.
 
 | Marco | Entrega | Responsável | Prazo |

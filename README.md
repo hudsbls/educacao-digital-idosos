@@ -13,6 +13,7 @@ Fase de **planejamento e definição de arquitetura**. Nenhum desenvolvimento de
 - [`docs/ARQUITETURA.md`](docs/ARQUITETURA.md) — documento principal de arquitetura do projeto.
 - [`docs/ACESSIBILIDADE.md`](docs/ACESSIBILIDADE.md) — padrão WCAG 2.2 AA, checklist, linguagem simples e protocolo de testes.
 - [`docs/GESTAO-E-REQUISITOS.md`](docs/GESTAO-E-REQUISITOS.md) — abordagem de gestão, requisitos, diagramas, planejamento e plano de evidências (roteiro do Trabalho Final).
+- [`docs/cronograma.html`](docs/cronograma.html) — cronograma acessível das 13 etapas (abra no navegador e imprima em PDF).
 
 ## Protótipo
 

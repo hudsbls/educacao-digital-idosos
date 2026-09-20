@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cronograma do projeto — Educação Digital contra Golpes Online</title>
+<style>
+  /* ===================================================================
+     Cronograma acessível do projeto.
+
+     Decisões de acessibilidade aplicadas (ver docs/ACESSIBILIDADE.md):
+       - A sequência é uma LISTA ORDENADA (<ol>): a ordem é lida por
+         leitores de tela, o que não aconteceria em uma grade de colunas.
+       - Nenhuma informação depende de cor: a duração é texto, não etiqueta.
+       - Contraste verificado (mesma paleta do portal, checada por script).
+       - Fonte base de 20px e alvos generosos.
+       - Setas e conectores são decorativos (CSS), fora da árvore de
+         acessibilidade.
+     =================================================================== */
+
+  :root {
+    --tinta: #1b1233;
+    --tinta-suave: #4f4666;
+    --papel: #ffffff;
+    --fundo: #f5f3ff;
+    --primaria: #5b21b6;
+    --primaria-texto: #ffffff;
+    --borda: #7c6ba8;
+    --base: 20px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { font-size: var(--base); }
+
+  body {
+    margin: 0;
+    padding: 2rem 1rem 3rem;
+    background: var(--fundo);
+    color: var(--tinta);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    line-height: 1.6;
+  }
+
+  .folha {
+    max-width: 46rem;
+    margin: 0 auto;
+    background: var(--papel);
+    padding: 2rem 1.5rem 2.5rem;
+  }
+
+  /* ------------------------------- Capa ---------------------------------- */
+  .capa { border-bottom: 4px solid var(--primaria); padding-bottom: 1.25rem; margin-bottom: 1.5rem; }
+
+  .disciplina {
+    margin: 0;
+    font-size: .85rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--tinta-suave);
+  }
+
+  h1 { font-size: 1.5rem; line-height: 1.3; margin: .35rem 0 .75rem; color: var(--primaria); }
+
+  .dados { margin: 0; font-size: .95rem; color: var(--tinta-suave); }
+  .preencher { border-bottom: 2px dashed var(--borda); }
+
+  /* ----------------------------- Conteúdo -------------------------------- */
+  h2 { font-size: 1.2rem; margin: 0 0 .5rem; color: var(--primaria); }
+
+  .intro { margin: 0 0 1.75rem; color: var(--tinta-suave); }
+
+  .cronograma { list-style: none; margin: 0; padding: 0; }
+
+  .cronograma > li {
+    position: relative;
+    border: 3px solid var(--primaria);
+    border-radius: 12px;
+    padding: 1rem 1rem 1rem 1.25rem;
+    margin: 0 0 1.75rem;
+  }
+
+  /* Conector entre etapas: puramente decorativo. */
+  .cronograma > li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 2.3rem;
+    bottom: -1.75rem;
+    width: 4px;
+    height: 1.4rem;
+    background: var(--primaria);
+  }
+  .cronograma > li:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    left: 2.1rem;
+    bottom: -2.1rem;
+    width: 0;
+    height: 0;
+    border-left: .3rem solid transparent;
+    border-right: .3rem solid transparent;
+    border-top: .35rem solid var(--primaria);
+  }
+
+  /* A duração é TEXTO, não apenas uma etiqueta colorida. */
+  .duracao {
+    display: inline-block;
+    margin: 0 0 .4rem;
+    padding: .15rem .7rem;
+    background: var(--primaria);
+    color: var(--primaria-texto);
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    border-radius: 6px;
+  }
+
+  .cronograma h3 { margin: 0 0 .35rem; font-size: 1.1rem; color: var(--primaria); }
+  .cronograma p { margin: 0; }
+
+  .rodape {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 3px solid var(--borda);
+    font-size: .85rem;
+    color: var(--tinta-suave);
+  }
+  .rodape p { margin: 0 0 .5rem; }
+
+  /* ------------------------------- Impressão ----------------------------- */
+  @page { size: A4; margin: 1.5cm; }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .folha { max-width: none; padding: 0; }
+    .cronograma > li { break-inside: avoid; }
+    .duracao, .cronograma > li, .capa {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .cronograma > li:not(:last-child)::before,
+    .cronograma > li:not(:last-child)::after { display: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="folha">
+    <header class="capa">
+      <p class="disciplina">Análise e Desenvolvimento de Sistemas</p>
+      <h1>Promover a Educação Digital de Idosos contra Golpes Online</h1>
+      <p class="dados">
+        Estudante: <span class="preencher">nome e matrícula</span> ·
+        Timóteo/MG · ODS 03, 04 e 10
+      </p>
+    </header>
+
+    <main>
+      <h2>Sequência de atividades</h2>
+      <p class="intro">
+        O projeto está organizado em <strong>13 etapas sequenciais</strong>. Cada etapa informa a
+        duração prevista em dias e o que entrega. A ordem da lista é a ordem de execução.
+      </p>
+
+      <ol class="cronograma" role="list">
+        <li>
+          <p class="duracao">2 dias</p>
+          <h3>Identificação do problema</h3>
+          <p>
+            Definir o problema, o público-alvo e os objetivos do projeto, considerando a realidade
+            das pessoas idosas de Timóteo/MG.
+          </p>
+        </li>
+
+        <li>
+          <p class="duracao">6 dias</p>
+          <h3>Pesquisa sobre golpes digitais</h3>
+          <p>
+            Investigar fontes, cartilhas e reportagens para catalogar os principais golpes aplicados
+            em pessoas idosas e as melhores práticas de prevenção.
+          </p>
+        </li>
+
+        <li>
+          <p class="duracao">6 dias</p>
+          <h3>Contato com o setor de aplicação</h3>
+          <p>
+            Apresentar a proposta aos parceiros locais — CRAS, centro de convivência, UBS e
+            associações — e levantar as necessidades do público e suas principais vulnerabilidades.
+          </p>
+        </li>
+
+        <li>
+          <p class="duracao">8 dias</p>
+          <h3>Coleta de requisitos</h3>
+          <p>
+            Documentar os requisitos funcionais e não funcionais, com base nas dores identificadas
+            na pesquisa e nas diretrizes de acessibilidade do projeto.
+          </p>
+        </li>
+
+        <li>
+          <p class="duracao">5 dias</p>
+          <h3>Modelagem e diagramas</h3>
+          <p>
+            Produzir o diagrama de contexto, os casos de uso por perfil, o fluxo de reação a um golpe
+            e o contrato de dados do conteúdo.
+          </p>
+        </li>
+
+        <li>
+          <p class="duracao">7 dias</p>
+          <h3>Prototipação acessível e teste com o público</h3>
+          <p>
+            Construir wireframes navegáveis e testá-los com pessoas idosas, registrando onde travam,
+            quais palavras não entendem e os erros de toque.
+          </p>
+        </li>
+
+        <li>
+          <p class="duracao">4 dias</p>
+          <h3>Planejamento do conteúdo</h3>
+          <p>
+            Definir a taxonomia dos golpes e elaborar os roteiros dos vídeos educativos, em linguagem
+            simples e com exemplos reais.
+          </p>
+        </li>
+
+        <li>
+          <p class="duracao">4 dias</p>
+          <h3>Planejamento da infraestrutura</h3>
+          <p>
+            Definir a hospedagem estática, o repositório versionado, o canal de vídeo e o domínio.
+            Não há servidor de aplicação nem banco de dados.
+          </p>
+        </li>
+
+        <li>
+          <p class="duracao">15 dias</p>
+          <h3>Incremento I0 — esqueleto do portal</h3>
+          <p>
+            Construir o portal com o layout acessível, o contrato de conteúdo validado e a publicação
+            funcionando de ponta a ponta.
+          </p>
+        </li>
+
+        <li>
+          <p class="duracao">15 dias</p>
+          <h3>Incremento I1 — conteúdo, busca e acessibilidade</h3>
+          <p>
+            Publicar o catálogo de golpes, a busca, os tutoriais e a página de ajuda com os canais
+            oficiais.
+          </p>
+        </li>
+
+        <li>
+          <p class="duracao">10 dias</p>
+          <h3>Produção audiovisual dos vídeos</h3>
+          <p>
+            Gravar, editar e legendar os vídeos curtos, publicando também a transcrição completa em
+            cada página.
+          </p>
+        </li>
+
+        <li>
+          <p class="duracao">10 dias</p>
+          <h3>Publicação e testes de acessibilidade</h3>
+          <p>
+            Publicar o portal, executar as auditorias de acessibilidade — automáticas e manuais — e
+            corrigir as barreiras encontradas.
+          </p>
+        </li>
+
+        <li>
+          <p class="duracao">10 dias</p>
+          <h3>Oficina de apresentação e treinamento</h3>
+          <p>
+            Aplicar as oficinas com os participantes, ensinando a usar e a compartilhar o conteúdo, e
+            coletar o retorno que alimenta as próximas revisões.
+          </p>
+        </li>
+      </ol>
+    </main>
+
+    <footer class="rodape">
+      <p>
+        <strong>Duração total prevista:</strong> 102 dias.
+        Os marcos de calendário (M1 a M8) estão em
+        <code>docs/GESTAO-E-REQUISITOS.md</code>, Seção 4.2.
+      </p>
+      <p>
+        Documento acessível: estrutura em lista ordenada, sem dependência de cor, contraste
+        verificado e fonte base de 20px. Para gerar o PDF, use
+        <em>Imprimir → Salvar como PDF</em> com a opção de gráficos de fundo ativada.
+      </p>
+    </footer>
+  </div>
+</body>
+</html>
