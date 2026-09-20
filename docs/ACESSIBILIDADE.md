@@ -191,37 +191,57 @@ Toda página de golpe e tutorial responde, nesta ordem:
 
 ### 8.1 Paleta adotada (resolve a decisão D8)
 
-Paleta **violeta vivo**, escolhida por ser vibrante e distintiva sem imitar a identidade de bancos
-ou de governo. O **vermelho é reservado exclusivamente para a faixa de aviso de segurança** —
-nunca como cor principal — porque já significa "perigo" e prejudica quem tem daltonismo.
+Estética **quente e acolhedor**: ocre, creme e verde-oliva, com formas arredondadas e mais espaço
+em branco. A razão não é só estética — quem cai em golpe costuma sentir vergonha, e um visual de
+"sistema oficial" intimida justamente quem mais precisa de ajuda.
 
-O impacto visual vem do uso da cor em **blocos grandes** (cabeçalho colorido, títulos coloridos,
-botões cheios), e não de detalhes — porque manter 7:1 com texto branco exige cores escuras.
+**Por que ocre e não terracota:** o vermelho é reservado **exclusivamente** ao aviso de segurança.
+Terracota (`#9A3412`) e o vermelho do alerta (`#991B1B`) têm a mesma luminosidade e o mesmo matiz
+— a marca ficaria parecida com o alerta, e o alerta perderia força. O ocre mantém a temperatura
+quente e libera o vermelho para significar perigo.
 
 | Token | Cor | Uso | Contraste verificado |
 |---|---|---|---|
-| `--tinta` | `#1B1233` | Texto principal | **17,8:1** sobre branco |
-| `--tinta-suave` | `#4F4666` | Texto secundário | **8,8:1** sobre branco |
-| `--primaria` | `#5B21B6` | Cabeçalho, títulos, botões, bordas | **9,0:1** sobre branco |
-| `--primaria-texto` | `#FFFFFF` | Texto sobre a cor principal | **9,0:1** |
+| `--tinta` | `#2B1D14` | Texto principal | **16,3:1** sobre branco |
+| `--tinta-suave` | `#5C4A3D` | Texto secundário | **8,4:1** sobre branco |
+| `--primaria` | `#7C4A03` | Cabeçalho, títulos, botões, bordas | **7,4:1** sobre branco |
+| `--primaria-texto` | `#FFFFFF` | Texto sobre a cor principal | **7,4:1** |
+| `--secundaria` | `#44521F` | Rótulos de canal e ícones | **8,5:1** sobre branco |
+| `--borda` | `#7A8B4F` | Separadores estruturais | **3,7:1** sobre branco |
 | `--alerta` | `#991B1B` | Fundo da faixa de aviso de segurança | **8,3:1** com texto branco |
 | `--alerta-texto` | `#FFFFFF` | Texto e selo da faixa de aviso | **8,3:1** |
-| `--borda` | `#7C6BA8` | Separadores estruturais | **4,6:1** sobre branco |
-| `--rodape` | `#2E1065` | Fundo do rodapé | **15,2:1** com texto branco |
-| `--foco` | `#5B21B6` | Anel de foco em fundo claro | **9,0:1** sobre branco |
-| `--foco-claro` | `#FFD400` | Anel de foco sobre o rodapé | **10,7:1** sobre o rodapé |
+| `--rodape` | `#3B2314` | Fundo do rodapé | **14,6:1** com texto branco |
+| `--foco` | `#7C4A03` | Anel de foco em fundo claro | **7,4:1** sobre branco |
+| `--foco-claro` | `#FFD400` | Anel de foco sobre o rodapé | **10,2:1** sobre o rodapé |
 
 **Faixa de aviso — o elemento de maior alerta da página.** O significado é carregado pelo
 **selo textual** ("Atenção" na página inicial, "Urgente" na página de ajuda); a cor apenas
 reforça. Isso resolve dois problemas de uma vez: quem não distingue cores continua entendendo,
 e a faixa deixa de parecer um botão (problema encontrado no teste de wireframes).
 
+### 8.2 Tipografia
+
+Fonte **Atkinson Hyperlegible** (Braille Institute), desenhada especificamente para leitores com
+baixa visão: diferencia caracteres que costumam se confundir (`I`, `l`, `1`, `O`, `0`).
+Auto-hospedada (~17 KB por peso), **sem requisição a terceiros** — coerente com a decisão do
+projeto de não rastrear usuários. Há fallback para as fontes do sistema.
+
+### 8.3 Formas, espaçamento e ícones
+
+| Decisão | Valor | Por quê |
+|---|---|---|
+| Cantos arredondados | 16px | Aparência acolhedora, menos "sistema" |
+| Alvos de toque | 48px (acima do mínimo de 44px) | Toque impreciso é comum |
+| Altura de linha | 1,65 | Mais respiro na leitura |
+| Espaçamento entre blocos | Ampliado | Reduz sobrecarga visual |
+| Ícones | SVG embutido, sempre decorativo | Reforçam o texto, nunca o substituem |
+
 > **Regra prática:** para "chamar atenção" com cor, aumente a **área colorida** (blocos, faixas,
 > botões cheios), não a **claridade** da cor. Cores claras derrubam o contraste e excluem quem
 > enxerga pouco.
 
 **Verificação automatizada:** o comando `npm run contraste` (dentro de `site/`) checa
-**17 pares de cor** e falha se algum ficar abaixo do piso do projeto. Deve ser executado antes
+**20 pares de cor** e falha se algum ficar abaixo do piso do projeto. Deve ser executado antes
 de qualquer publicação.
 
 **Regra de ouro da cor:** nenhuma informação é transmitida **só por cor**. Todo estado, alerta ou
@@ -233,7 +253,7 @@ erro tem também texto ou rótulo.
 
 ### 9.1 Automatizados (rápidos, insuficientes)
 - **axe DevTools** / **Lighthouse** em todas as páginas → zero erros críticos.
-- `npm run contraste` (em `site/`) → confere os 17 pares de cor da paleta.
+- `npm run contraste` (em `site/`) → confere os 20 pares de cor da paleta.
 - Validador de HTML.
 - **Atenção:** ferramentas automáticas detectam ~30–40% dos problemas. Nunca aprovar só com elas.
 

@@ -38,7 +38,7 @@ O Node.js está instalado em `C:\Program Files\nodejs`. Se o terminal não recon
 | `npm run dev` | Servidor de desenvolvimento em http://localhost:4321 |
 | `npm run build` | Gera o site estático em `dist/` |
 | `npm run preview` | Serve o site já construído |
-| `npm run contraste` | Confere os 17 pares de cor da paleta (falha se algum reprovar) |
+| `npm run contraste` | Confere os 20 pares de cor da paleta (falha se algum reprovar) |
 
 ---
 

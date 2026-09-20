@@ -1,7 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
-import { rotulosCanais } from '../lib/rotulos';
+import Icone from '../components/Icone.astro';
+import { rotulosCanais, iconeCanal } from '../lib/rotulos';
 
 const golpes = (await getCollection('golpes', ({ data }) => !data.rascunho)).sort((a, b) =>
   a.data.titulo.localeCompare(b.data.titulo, 'pt-BR')
@@ -35,7 +36,10 @@ const destaques = golpes.slice(0, 3);
 
     {destaques.map((golpe) => (
       <a class="card" href={`/golpes/${golpe.id}/`}>
-        <span class="canal">Canal: {rotulosCanais(golpe.data.canal)}</span>
+        <span class="card-topo">
+          <Icone nome={iconeCanal(golpe.data.canal)} tamanho={26} />
+          <span class="canal">Canal: {rotulosCanais(golpe.data.canal)}</span>
+        </span>
         <h3>{golpe.data.titulo}</h3>
         <p>{golpe.data.resumoCurto}</p>
       </a>

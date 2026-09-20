@@ -1,5 +1,8 @@
 ---
+import '@fontsource/atkinson-hyperlegible/400.css';
+import '@fontsource/atkinson-hyperlegible/700.css';
 import '../styles/global.css';
+import Icone from '../components/Icone.astro';
 
 interface Props {
   titulo: string;
@@ -31,17 +34,21 @@ const ehAtual = (prefixo: string) =>
     <header class="cabecalho">
       <div class="limite topo">
         <a class="marca" href="/">
-          <span class="marca-nome">Educação Digital</span>
-          <span class="marca-sub">Contra golpes online · Timóteo/MG</span>
+          <span class="marca-icone"><Icone nome="escudo" tamanho={26} /></span>
+          <span class="marca-texto">
+            <span class="marca-nome">Educação Digital</span>
+            <span class="marca-sub">Contra golpes online · Timóteo/MG</span>
+          </span>
         </a>
 
-        <nav aria-label="Acessibilidade">
-          <div class="acess">
+        <div class="acess-grupo">
+          <p class="acess-rotulo" id="rotulo-acess">Acessibilidade:</p>
+          <div class="acess" role="group" aria-labelledby="rotulo-acess">
             <button type="button" class="btn-acess" data-acao="diminuir">Letra menor</button>
             <button type="button" class="btn-acess" data-acao="aumentar">Letra maior</button>
             <button type="button" class="btn-acess" data-acao="contraste" aria-pressed="false">Mais contraste</button>
           </div>
-        </nav>
+        </div>
       </div>
 
       <nav class="menu" aria-label="Menu principal">

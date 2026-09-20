@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import Icone from '../components/Icone.astro';
 ---
 
 <Base
@@ -46,27 +47,42 @@ import Base from '../layouts/Base.astro';
     <h2>Canais oficiais</h2>
     <ul class="canais">
       <li>
-        <strong>Seu banco</strong>
-        <span>Bloquear cartão, contestar transferência e registrar a fraude. Use o telefone do cartão.</span>
+        <div class="canais-icone"><Icone nome="telefone" tamanho={26} /></div>
+        <div class="canais-texto">
+          <strong>Seu banco</strong>
+          <span>Bloquear cartão, contestar transferência e registrar a fraude. Use o telefone do cartão.</span>
+        </div>
       </li>
       <li>
-        <strong>Polícia — 190</strong>
-        <span>Ligue agora, se houver perigo neste momento ou alguém em risco. É a emergência.</span>
+        <div class="canais-icone"><Icone nome="alerta" tamanho={26} /></div>
+        <div class="canais-texto">
+          <strong>Polícia — 190</strong>
+          <span>Ligue agora, se houver perigo neste momento ou alguém em risco. É a emergência.</span>
+        </div>
       </li>
       <li>
-        <strong>Polícia Civil — 197 e Delegacia Virtual</strong>
-        <span>
-          Ligue com calma, depois, para registrar a denúncia e investigar o crime. Não é para
-          emergência.
-        </span>
+        <div class="canais-icone"><Icone nome="documento" tamanho={26} /></div>
+        <div class="canais-texto">
+          <strong>Polícia Civil — 197 e Delegacia Virtual</strong>
+          <span>
+            Ligue com calma, depois, para registrar a denúncia e investigar o crime. Não é para
+            emergência.
+          </span>
+        </div>
       </li>
       <li>
-        <strong>Procon — 151</strong>
-        <span>Para problemas de compra, cobrança indevida e empresa que não entrega.</span>
+        <div class="canais-icone"><Icone nome="ajuda" tamanho={26} /></div>
+        <div class="canais-texto">
+          <strong>Procon — 151</strong>
+          <span>Para problemas de compra, cobrança indevida e empresa que não entrega.</span>
+        </div>
       </li>
       <li>
-        <strong>Disque 100</strong>
-        <span>Para denunciar violência ou desrespeito aos direitos da pessoa idosa.</span>
+        <div class="canais-icone"><Icone nome="pessoas" tamanho={26} /></div>
+        <div class="canais-texto">
+          <strong>Disque 100</strong>
+          <span>Para denunciar violência ou desrespeito aos direitos da pessoa idosa.</span>
+        </div>
       </li>
     </ul>
 

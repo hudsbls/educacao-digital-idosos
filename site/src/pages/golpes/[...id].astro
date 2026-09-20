@@ -1,7 +1,8 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
-import { rotulosCanais } from '../../lib/rotulos';
+import Icone from '../../components/Icone.astro';
+import { rotulosCanais, iconeCanal } from '../../lib/rotulos';
 
 export async function getStaticPaths() {
   const golpes = await getCollection('golpes', ({ data }) => !data.rascunho);
@@ -43,8 +44,11 @@ const video = golpe.data.video;
         </div>
       ) : (
         <p class="aviso-video">
-          <strong>Vídeo em produção.</strong> A gravação deste conteúdo faz parte da etapa de produção
-          audiovisual. Enquanto isso, leia o texto abaixo — ele tem a mesma informação.
+          <Icone nome="video" tamanho={28} />
+          <span>
+            <strong>Vídeo em produção.</strong> A gravação deste conteúdo faz parte da etapa de
+            produção audiovisual. Enquanto isso, leia o texto abaixo — ele tem a mesma informação.
+          </span>
         </p>
       )
     }
@@ -66,7 +70,10 @@ const video = golpe.data.video;
 
     <h2>Envie para alguém</h2>
     <div class="acoes">
-      <a href="#transcricao" data-compartilhar>Enviar para alguém</a>
+      <a href="#transcricao" data-compartilhar>
+        <Icone nome="enviar" tamanho={22} />
+        Enviar para alguém
+      </a>
     </div>
 
     <details>
@@ -90,7 +97,10 @@ const video = golpe.data.video;
           <h2>Outros golpes</h2>
           {outros.map((outro) => (
             <a class="card" href={`/golpes/${outro.id}/`}>
-              <span class="canal">Canal: {rotulosCanais(outro.data.canal)}</span>
+              <span class="card-topo">
+                <Icone nome={iconeCanal(outro.data.canal)} tamanho={26} />
+                <span class="canal">Canal: {rotulosCanais(outro.data.canal)}</span>
+              </span>
               <h3>{outro.data.titulo}</h3>
               <p>{outro.data.resumoCurto}</p>
             </a>
