@@ -9,6 +9,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "contraste": "node scripts/verificar-contraste.mjs",
     "astro": "astro"
   },
   "dependencies": {

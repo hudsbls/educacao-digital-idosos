@@ -510,7 +510,7 @@ preço é a dependência de plataforma de terceiros, mitigada pelos controles ab
 | D5 | Coleta de dados no portal | **Decidida:** nenhuma | Reduz LGPD e risco de segurança |
 | D6 | Analytics | Pendente | Recomendação: sem cookies ou nenhum |
 | D7 | Licença do conteúdo | Pendente | Recomendação: Creative Commons para permitir reuso |
-| D8 | Identidade visual e marca | Pendente | Definir antes da produção de vídeos |
+| D8 | Identidade visual e marca | **DECIDIDA: paleta verde-petróleo com âmbar para avisos** | Contrastes verificados por script (`npm run contraste`); ver `ACESSIBILIDADE.md`, 8.1 |
 | D9 | Abordagem de gestão | **DECIDIDA: Kanban** | Fluxo contínuo de conteúdo + marcos acadêmicos (ver `GESTAO-E-REQUISITOS.md`, 1) |
 
 ---

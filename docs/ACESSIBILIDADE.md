@@ -189,8 +189,31 @@ Toda página de golpe e tutorial responde, nesta ordem:
 | Espaçamento de texto | suportar ajuste sem perda de conteúdo (WCAG 1.4.12) |
 | Animação | mínima, sem essencialidade e respeitando `prefers-reduced-motion` |
 
-> Não definir cores exatas agora: a identidade visual é decisão pendente (D8). Os **valores de
-> contraste e tamanho** aqui já ficam fixados como restrição para quem definir o visual.
+### 8.1 Paleta adotada (resolve a decisão D8)
+
+Paleta em **verde-petróleo**, que transmite confiança sem imitar a identidade de bancos ou de
+governo. O **âmbar** fica reservado para avisos, e o **vermelho não é usado como cor principal**:
+ele já significa "perigo" e prejudica quem tem daltonismo.
+
+| Token | Cor | Uso | Contraste verificado |
+|---|---|---|---|
+| `--tinta` | `#14201F` | Texto principal | **16,7:1** sobre branco |
+| `--tinta-suave` | `#4A5A58` | Texto secundário | **7,3:1** sobre branco |
+| `--primaria` | `#0B5D57` | Botões, bordas, ações | **7,7:1** sobre branco |
+| `--primaria-texto` | `#FFFFFF` | Texto sobre a cor principal | **7,7:1** |
+| `--acento` | `#8A3E00` | Rótulo e link de aviso | **7,1:1** sobre `#FFF6E5` |
+| `--alerta-fundo` | `#FFF6E5` | Fundo da faixa de aviso | — |
+| `--borda` | `#6B8F8B` | Separadores estruturais | **3,5:1** sobre branco |
+| `--rodape` | `#0B3B37` | Fundo do rodapé | **12,4:1** com texto branco |
+| `--foco` | `#0B5FFF` | Anel de foco em fundo claro | **5,1:1** sobre branco |
+| `--foco` (escuro) | `#FFD400` | Anel de foco sobre o rodapé | **8,7:1** sobre o rodapé |
+
+**Verificação automatizada:** o comando `npm run contraste` (dentro de `site/`) checa
+**16 pares de cor** e falha se algum ficar abaixo do piso do projeto. Deve ser executado antes
+de qualquer publicação.
+
+**Regra de ouro da cor:** nenhuma informação é transmitida **só por cor**. Todo estado, alerta ou
+erro tem também texto ou rótulo.
 
 ---
 
@@ -198,7 +221,8 @@ Toda página de golpe e tutorial responde, nesta ordem:
 
 ### 9.1 Automatizados (rápidos, insuficientes)
 - **axe DevTools** / **Lighthouse** em todas as páginas → zero erros críticos.
-- Validador de HTML e verificação de contraste.
+- `npm run contraste` (em `site/`) → confere os 16 pares de cor da paleta.
+- Validador de HTML.
 - **Atenção:** ferramentas automáticas detectam ~30–40% dos problemas. Nunca aprovar só com elas.
 
 ### 9.2 Manuais (obrigatórios)
@@ -287,7 +311,7 @@ Um conteúdo/página está **pronto** quando:
 |---|---|---|
 | A1 | Incluir janela de Libras nos vídeos principais? | Fase F4 (produção de vídeos) |
 | A2 | Confirmar edição vigente da ABNT NBR 17225 | Início da Fase F3 |
-| A3 | Definir paleta com contraste validado | Após decisão D8 (identidade visual) |
+| ~~A3~~ | ~~Definir paleta com contraste validado~~ | **Resolvida** — ver Seção 8.1 |
 | A4 | Definir se haverá recurso de leitura em voz alta nativa do site | Fase F3 |
 | A5 | Definir navegadores/dispositivos reais do público | Camada C1 (pesquisa) |
 

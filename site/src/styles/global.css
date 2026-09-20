@@ -1,30 +1,69 @@
 /* =====================================================================
    Portal — Educação Digital contra Golpes Online (Timóteo/MG)
 
-   Restrições de acessibilidade definidas em docs/ACESSIBILIDADE.md:
-   fonte base 20px, contraste alto, alvos de toque >= 44px, foco visível.
-   Os rótulos dos controles foram validados no teste de wireframes:
-   "Letra maior" / "Letra menor" / "Mais contraste" (e não "A+"/"A-"/"Contraste").
+   PALETA (decisão D8) — todos os contrastes verificados:
+     texto principal   #14201F sobre #FFFFFF .......... 16,7:1
+     texto secundário  #4A5A58 sobre #FFFFFF ..........  7,3:1
+     texto em botão    #FFFFFF sobre #0B5D57 ..........  7,7:1
+     texto no rodapé   #FFFFFF sobre #0B3B37 .......... 12,4:1
+     aviso             #8A3E00 sobre #FFF6E5 ..........  7,1:1
+     borda estrutural  #6B8F8B sobre #FFFFFF ..........  3,5:1
+     foco (azul)       #0B5FFF sobre #FFFFFF ..........  5,1:1
+
+   Regras que a paleta respeita:
+   - Nenhuma informação é transmitida SÓ por cor (sempre há texto ou rótulo).
+   - O vermelho não é usado como cor principal: já significa "perigo" e
+     prejudica quem tem daltonismo. O âmbar fica reservado para avisos.
+   - O modo "Mais contraste" troca apenas as variáveis abaixo.
+
+   Demais restrições em docs/ACESSIBILIDADE.md: fonte base 20px,
+   alvos de toque >= 44px, foco visível, rótulos em palavras.
    ===================================================================== */
 
 :root {
-  --tinta: #111111;
-  --tinta-suave: #444444;
+  /* Texto */
+  --tinta: #14201f;
+  --tinta-suave: #4a5a58;
+
+  /* Superfícies */
   --papel: #ffffff;
-  --linha: #111111;
-  --cinza: #f4f4f4;
+  --fundo: #f1f6f5;
+  --cinza: #eff4f3;
+
+  /* Cor principal (ações e bordas) */
+  --primaria: #0b5d57;
+  --primaria-texto: #ffffff;
+
+  /* Avisos */
+  --acento: #8a3e00;
+  --alerta-fundo: #fff6e5;
+
+  /* Estrutura */
+  --borda: #6b8f8b;
+  --rodape: #0b3b37;
+  --rodape-texto: #ffffff;
+
+  /* Foco */
   --foco: #0b5fff;
+
   --base: 20px;
   --raio: 12px;
 }
 
-/* Alto contraste: basta trocar as variáveis. */
+/* Modo "Mais contraste": preto, branco e amarelo — máximo contraste. */
 body.alto-contraste {
   --tinta: #ffffff;
   --tinta-suave: #f2f2f2;
   --papel: #000000;
-  --linha: #ffffff;
+  --fundo: #000000;
   --cinza: #111111;
+  --primaria: #ffffff;
+  --primaria-texto: #000000;
+  --acento: #ffd400;
+  --alerta-fundo: #000000;
+  --borda: #ffffff;
+  --rodape: #000000;
+  --rodape-texto: #ffffff;
   --foco: #ffd400;
 }
 
@@ -46,7 +85,7 @@ body {
   font-size: 1rem;
   line-height: 1.6;
   color: var(--tinta);
-  background: var(--papel);
+  background: var(--fundo);
 }
 
 .limite { max-width: 44rem; margin: 0 auto; padding: 0 1rem; }
@@ -64,15 +103,15 @@ a { color: var(--tinta); }
   position: absolute;
   left: -9999px;
   top: 0;
-  background: var(--tinta);
-  color: var(--papel);
+  background: var(--primaria);
+  color: var(--primaria-texto);
   padding: .75rem 1rem;
   z-index: 50;
 }
 .pular:focus { left: .5rem; top: .5rem; }
 
 /* ------------------------------- Cabeçalho ------------------------------ */
-.cabecalho { background: var(--papel); border-bottom: 4px solid var(--linha); }
+.cabecalho { background: var(--papel); border-bottom: 4px solid var(--primaria); }
 
 .topo {
   display: flex;
@@ -85,7 +124,7 @@ a { color: var(--tinta); }
 }
 
 .marca { display: block; text-decoration: none; }
-.marca-nome { display: block; font-weight: 700; font-size: 1.15rem; }
+.marca-nome { display: block; font-weight: 700; font-size: 1.15rem; color: var(--primaria); }
 .marca-sub { display: block; font-size: .8rem; color: var(--tinta-suave); }
 
 .acess { display: flex; gap: .5rem; flex-wrap: wrap; }
@@ -98,13 +137,13 @@ a { color: var(--tinta); }
   font-weight: 700;
   font-family: inherit;
   background: var(--papel);
-  color: var(--tinta);
-  border: 2px solid var(--tinta);
+  color: var(--primaria);
+  border: 2px solid var(--primaria);
   border-radius: 8px;
   cursor: pointer;
 }
 
-.menu { border-top: 2px solid var(--linha); }
+.menu { border-top: 2px solid var(--borda); }
 .menu ul {
   list-style: none;
   display: flex;
@@ -120,20 +159,31 @@ a { color: var(--tinta); }
   font-weight: 600;
   border-radius: 8px;
 }
-.menu a[aria-current="page"] { background: var(--linha); color: var(--papel); }
+.menu a:hover { background: var(--cinza); }
+.menu a[aria-current="page"] {
+  background: var(--primaria);
+  color: var(--primaria-texto);
+}
 
 /* -------------------------------- Conteúdo ------------------------------ */
 /* Aviso: parece aviso, não botão (correção validada nos wireframes). */
 .faixa-alerta {
-  background: var(--papel);
+  background: var(--alerta-fundo);
   color: var(--tinta);
-  border-bottom: 3px solid var(--linha);
+  border-top: 2px solid var(--acento);
+  border-bottom: 2px solid var(--acento);
   padding: .9rem 0;
 }
 .faixa-alerta p { margin: 0; font-weight: 600; }
-.faixa-alerta a { text-decoration: underline; }
+.faixa-alerta strong { color: var(--acento); }
+.faixa-alerta a { color: var(--acento); text-decoration: underline; }
 
-.pagina { max-width: 44rem; margin: 0 auto; padding: 1.5rem 1rem 2.5rem; }
+.pagina {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 2.5rem;
+  background: var(--papel);
+}
 
 h1 { font-size: 1.6rem; line-height: 1.3; margin: 0 0 .5rem; }
 h2 { font-size: 1.25rem; margin: 1.75rem 0 .5rem; }
@@ -145,38 +195,45 @@ p { margin: 0 0 1rem; }
 .botao-grande {
   display: block;
   text-align: center;
-  background: var(--tinta);
-  color: var(--papel);
+  background: var(--primaria);
+  color: var(--primaria-texto);
   text-decoration: none;
   font-weight: 700;
   font-size: 1.2rem;
   padding: 1.1rem 1rem;
-  border: 3px solid var(--tinta);
+  border: 3px solid var(--primaria);
   border-radius: var(--raio);
   margin: 1.25rem 0;
 }
-.botao-grande.secundario { background: var(--papel); color: var(--tinta); }
+.botao-grande.secundario { background: var(--papel); color: var(--primaria); }
 .botao-sub { display: block; font-size: .9rem; font-weight: 500; margin-top: .4rem; }
 
 .card {
   display: block;
-  border: 3px solid var(--linha);
+  border: 3px solid var(--primaria);
   border-radius: var(--raio);
   padding: 1rem;
   margin: 1.25rem 0;
   text-decoration: none;
   background: var(--papel);
 }
+.card:hover { background: var(--cinza); }
 .card p { margin: 0; color: var(--tinta-suave); }
 /* Canal é informação, não aba. */
-.card .canal { display: block; font-size: .85rem; font-weight: 600; color: var(--tinta-suave); margin-bottom: .25rem; }
+.card .canal {
+  display: block;
+  font-size: .85rem;
+  font-weight: 700;
+  color: var(--primaria);
+  margin-bottom: .25rem;
+}
 
 .passos { list-style: none; counter-reset: passo; padding: 0; margin: 0; }
 .passos li {
   counter-increment: passo;
   position: relative;
   padding: 1rem 1rem 1rem 3.75rem;
-  border: 2px solid var(--linha);
+  border: 2px solid var(--primaria);
   border-radius: var(--raio);
   margin: .9rem 0;
 }
@@ -188,8 +245,8 @@ p { margin: 0 0 1rem; }
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
-  background: var(--tinta);
-  color: var(--papel);
+  background: var(--primaria);
+  color: var(--primaria-texto);
   display: grid;
   place-items: center;
   font-weight: 700;
@@ -199,7 +256,7 @@ p { margin: 0 0 1rem; }
 .lista-sinais li { margin-bottom: .4rem; }
 
 .canais { list-style: none; padding: 0; margin: 0; }
-.canais li { border-left: 6px solid var(--linha); padding: .5rem 0 .5rem 1rem; margin-bottom: 1rem; }
+.canais li { border-left: 6px solid var(--primaria); padding: .5rem 0 .5rem 1rem; margin-bottom: 1rem; }
 .canais strong { display: block; font-size: 1.05rem; }
 .canais span { color: var(--tinta-suave); font-size: .9rem; }
 
@@ -207,7 +264,7 @@ p { margin: 0 0 1rem; }
 .video {
   position: relative;
   aspect-ratio: 16 / 9;
-  border: 3px solid var(--linha);
+  border: 3px solid var(--primaria);
   border-radius: var(--raio);
   overflow: hidden;
   background: var(--cinza);
@@ -216,7 +273,7 @@ p { margin: 0 0 1rem; }
 .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 
 .aviso-video {
-  border: 2px dashed var(--tinta-suave);
+  border: 2px dashed var(--borda);
   border-radius: 8px;
   padding: 1rem;
   color: var(--tinta-suave);
@@ -236,8 +293,8 @@ p { margin: 0 0 1rem; }
   font-family: inherit;
   text-decoration: none;
   background: var(--papel);
-  color: var(--tinta);
-  border: 2px solid var(--linha);
+  color: var(--primaria);
+  border: 2px solid var(--primaria);
   border-radius: 8px;
   cursor: pointer;
 }
@@ -251,18 +308,26 @@ summary {
   font-size: .95rem;
   font-weight: 600;
   background: var(--papel);
-  color: var(--tinta);
-  border: 2px solid var(--linha);
+  color: var(--primaria);
+  border: 2px solid var(--primaria);
   border-radius: 8px;
   cursor: pointer;
 }
 
 /* ------------------------------ Transcrição ----------------------------- */
-.transcricao { border-top: 3px solid var(--linha); margin-top: 2rem; padding-top: 1rem; }
+.transcricao { border-top: 3px solid var(--borda); margin-top: 2rem; padding-top: 1rem; }
 
 /* -------------------------------- Rodapé -------------------------------- */
-.rodape { background: var(--tinta); color: var(--papel); margin-top: 3rem; }
-.rodape a { color: var(--papel); }
+.rodape {
+  background: var(--rodape);
+  color: var(--rodape-texto);
+  border-top: 4px solid var(--primaria);
+  margin-top: 3rem;
+}
+.rodape a { color: var(--rodape-texto); text-decoration: underline; }
 .rodape .limite { padding: 1.5rem 1rem; }
 .rodape ul { list-style: none; padding: 0; margin: 0 0 1rem; display: flex; flex-wrap: wrap; gap: 1rem; }
 .rodape p { margin: .35rem 0; font-size: .9rem; }
+
+/* O foco azul não contrasta sobre o rodapé escuro — aqui usa amarelo. */
+.rodape :focus-visible { outline-color: #ffd400; }
