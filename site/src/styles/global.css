@@ -67,6 +67,9 @@
   --foco: #1b3a6b;
   --foco-claro: #ffd400;
 
+  /* Realce da marca ("Sem" em dourado no cabeçalho) */
+  --marca-realce: #ffc93c;
+
   --base: 20px;
   --raio: 16px;
   --raio-pill: 999px;
@@ -100,6 +103,7 @@ body.alto-contraste {
   --rodape-texto: #ffffff;
   --foco: #ffd400;
   --foco-claro: #ffd400;
+  --marca-realce: #000000;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -177,6 +181,7 @@ a { color: var(--tinta); }
   border-radius: var(--raio);
 }
 .marca-nome { display: block; font-weight: 700; font-size: 1.25rem; }
+.marca-realce { color: var(--marca-realce); }
 .marca-sub { display: block; font-size: .82rem; font-weight: 400; }
 
 .acess-grupo { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; }

@@ -74,7 +74,7 @@ const PARES = [
 
   // Dourado (destaque)
   { nome: 'Texto sobre dourado', frente: 'douradoTexto', fundo: 'dourado', minimo: 7 },
-  { nome: 'Dourado sobre azul-marinho (realce)', frente: 'dourado', fundo: 'primaria', minimo: 3 },
+  { nome: 'Realce da marca sobre o cabeçalho', frente: 'dourado', fundo: 'primaria', minimo: 7 },
 
   // Aviso de segurança
   { nome: 'Texto do aviso sobre o aviso', frente: 'alertaTexto', fundo: 'alerta', minimo: 7 },

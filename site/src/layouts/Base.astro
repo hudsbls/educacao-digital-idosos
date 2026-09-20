@@ -11,7 +11,7 @@ interface Props {
 
 const {
   titulo,
-  descricao = 'Portal educativo sobre golpes digitais para pessoas idosas em Timóteo/MG.',
+  descricao = 'Sem Golpe — portal educativo sobre golpes digitais para pessoas idosas em Timóteo/MG.',
 } = Astro.props;
 
 const caminho = Astro.url.pathname;
@@ -26,7 +26,7 @@ const ehAtual = (prefixo: string) =>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={descricao} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{titulo} · Educação Digital contra Golpes Online</title>
+    <title>{titulo} · Sem Golpe</title>
   </head>
   <body>
     <a class="pular" href="#conteudo">Pular para o conteúdo</a>
@@ -36,8 +36,8 @@ const ehAtual = (prefixo: string) =>
         <a class="marca" href="/">
           <span class="marca-icone"><Icone nome="escudo" tamanho={26} /></span>
           <span class="marca-texto">
-            <span class="marca-nome">Educação Digital</span>
-            <span class="marca-sub">Contra golpes online · Timóteo/MG</span>
+            <span class="marca-nome"><span class="marca-realce">Sem</span> Golpe</span>
+            <span class="marca-sub">Educação digital contra golpes · Timóteo/MG</span>
           </span>
         </a>
 

@@ -1,4 +1,4 @@
-# Prompt de contexto — Portal Educação Digital contra Golpes Online
+# Prompt de contexto — Sem Golpe
 
 > Arquivo para colar em ferramentas de IA (assistentes, geradores de código, designers).
 > Contém a versão curta (só o resumo) e a versão completa (resumo + restrições do projeto).
@@ -7,29 +7,29 @@
 
 ## Versão 1 — só o resumo (um parágrafo)
 
-O **Portal Educação Digital contra Golpes Online** é um site educativo e acessível, acompanhado de
-oficinas presenciais, criado para ensinar pessoas idosas de Timóteo/MG a reconhecer, evitar e
-reagir a golpes digitais. Reúne vídeos curtos e legendados, explicações em linguagem simples e um
-passo a passo do que fazer depois de um golpe, além dos canais oficiais de ajuda. É um projeto de
-extensão alinhado aos ODS 3 (saúde e bem-estar), 4 (educação de qualidade) e 10 (redução das
-desigualdades). Diferencia-se por ser feito para quem tem pouca familiaridade digital e baixa
-visão: usa fonte desenhada para leitura com baixa visão, contraste alto, navegação simples,
-nenhuma coleta de dados pessoais e exemplos da realidade local — e nunca pede senha, dinheiro ou
-instalação de aplicativos.
+O **Sem Golpe** é um portal educativo e acessível, acompanhado de oficinas presenciais, criado para
+ensinar pessoas idosas de Timóteo/MG a reconhecer, evitar e reagir a golpes digitais. Reúne vídeos
+curtos e legendados, explicações em linguagem simples e um passo a passo do que fazer depois de um
+golpe, além dos canais oficiais de ajuda. É o produto do projeto de extensão *Promover a Educação
+Digital de Idosos contra Golpes Online*, alinhado aos ODS 3 (saúde e bem-estar), 4 (educação de
+qualidade) e 10 (redução das desigualdades). Diferencia-se por ser feito para quem tem pouca
+familiaridade digital e baixa visão: usa fonte desenhada para leitura com baixa visão, contraste
+alto, navegação simples, nenhuma coleta de dados pessoais e exemplos da realidade local — e nunca
+pede senha, dinheiro ou instalação de aplicativos.
 
 ---
 
 ## Versão 2 — prompt completo (para desenvolvimento ou design)
 
-**Contexto.** Você vai trabalhar no **Portal Educação Digital contra Golpes Online**, um site
-educativo e acessível, acompanhado de oficinas presenciais, criado para ensinar pessoas idosas de
-Timóteo/MG a reconhecer, evitar e reagir a golpes digitais. Ele reúne vídeos curtos e legendados,
-explicações em linguagem simples e um passo a passo do que fazer depois de um golpe, além dos
-canais oficiais de ajuda. É um projeto de extensão alinhado aos ODS 3 (saúde e bem-estar), 4
-(educação de qualidade) e 10 (redução das desigualdades), e se diferencia por ser feito para quem
-tem pouca familiaridade digital e baixa visão: usa fonte desenhada para leitura com baixa visão,
-contraste alto, navegação simples, nenhuma coleta de dados pessoais e exemplos da realidade local —
-e nunca pede senha, dinheiro ou instalação de aplicativos.
+**Contexto.** Você vai trabalhar no **Sem Golpe**, o portal educativo e acessível do projeto de
+extensão *Promover a Educação Digital de Idosos contra Golpes Online*. É um site, acompanhado de
+oficinas presenciais, criado para ensinar pessoas idosas de Timóteo/MG a reconhecer, evitar e
+reagir a golpes digitais. Ele reúne vídeos curtos e legendados, explicações em linguagem simples e
+um passo a passo do que fazer depois de um golpe, além dos canais oficiais de ajuda. Está alinhado
+aos ODS 3 (saúde e bem-estar), 4 (educação de qualidade) e 10 (redução das desigualdades), e se
+diferencia por ser feito para quem tem pouca familiaridade digital e baixa visão: usa fonte
+desenhada para leitura com baixa visão, contraste alto, navegação simples, nenhuma coleta de dados
+pessoais e exemplos da realidade local — e nunca pede senha, dinheiro ou instalação de aplicativos.
 
 **Público.** Pessoas idosas (60+), muitas com baixa visão, pouca familiaridade com tecnologia e
 possível declínio cognitivo leve. Público secundário: filhos e cuidadores que ensinam à distância.

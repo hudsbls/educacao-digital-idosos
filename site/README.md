@@ -1,4 +1,4 @@
-# Portal — Educação Digital contra Golpes Online
+# Sem Golpe — portal de educação digital contra golpes online
 
 Site acessível do projeto **Promover a Educação Digital de Idosos contra Golpes Online**
 (Timóteo/MG). Faz parte do Trabalho Final de extensão.

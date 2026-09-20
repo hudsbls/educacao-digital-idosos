@@ -42,7 +42,7 @@ permite validar a estrutura antes de a pesquisa terminar — decisão de método
 [`../docs/GESTAO-E-REQUISITOS.md`](../docs/GESTAO-E-REQUISITOS.md), Seção 1.
 
 ### Elementos ainda fictícios
-- Nome do projeto ("Educação Digital") e e-mail de contato — **placeholders**.
+- Nome do projeto ("Educação Digital") e e-mail de contato — **placeholders**. *(Resolvido depois: a marca do portal passou a ser **Sem Golpe**.)*
 - Menu `Oficinas` e `Sobre` e a área "Aprenda o básico" — ainda não desenhados.
 - Números oficiais de ajuda (190, 197, 151, Disque 100) — **devem ser conferidos** antes de publicar.
 
