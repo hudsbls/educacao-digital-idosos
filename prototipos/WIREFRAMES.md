@@ -130,8 +130,39 @@ Após aplicar o roteiro da Seção 4:
 
 ---
 
+## 8. Correções aplicadas após a simulação (v0.2)
+
+Aplicadas as correções de **prioridade alta** apontadas em [`SIMULACAO-TESTE.md`](SIMULACAO-TESTE.md),
+Seção 7. **Ainda sem validação com pessoas reais** — são hipóteses a confirmar no teste.
+
+| Correção | Antes | Depois |
+|---|---|---|
+| Controles de acessibilidade | `A−` / `A+` / `Contraste` | **Letra menor** / **Letra maior** / **Mais contraste** |
+| Ação de envio | "Compartilhar no WhatsApp" | **"Enviar para alguém"** |
+| Copiar link | Botão no nível principal | Movido para **"Mais opções"** (bloco recolhível) |
+| Faixa de aviso | Bloco preto (parecia botão) | Faixa com bordas e o rótulo **"Atenção:"** |
+| Jargões | "transcrição", "contestar a operação", "violação de direitos" | "texto do vídeo", "diga que você não fez aquela compra", "desrespeito aos direitos" |
+| Rodapé | "Acessibilidade" / "Glossário" | "Como usar este site" / "Palavras explicadas" |
+
+### Pendências (prioridade média e baixa)
+
+| # | Pendência | Prioridade |
+|---|---|---|
+| 6 | Explicar a diferença entre 190 e 197 | Média |
+| 7 | Chip de canal não pode parecer aba (ex.: `Canal: Telefone`) | Média |
+| 8 | Aumentar o espaçamento entre cartões e entre botões | Média |
+| 9 | Subtítulo no botão de ajuda (resolve a ambiguidade do "agora") | Média |
+| 11 | Alternativa sem WhatsApp (endereço do site + QR code impresso) | Baixa |
+| 12 | Reavaliar "Oficinas" e "Sobre" no menu | Baixa |
+
+> **Importante:** estas mudanças são hipóteses. O teste real pode confirmar ou derrubar cada uma.
+> Registrar a diferença entre a simulação e o teste real é o achado mais valioso para o relatório.
+
+---
+
 ### Histórico de revisões
 
 | Versão | Data | Alteração |
 |---|---|---|
 | 0.1 | 2026-09-20 | Versão inicial: 4 telas, roteiro de teste e decisões embutidas |
+| 0.2 | 2026-09-20 | Correções de prioridade alta aplicadas após a simulação (rótulos de acessibilidade, jargões, faixa de aviso, ação de envio) |
