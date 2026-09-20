@@ -1,14 +1,18 @@
 /* =====================================================================
    Portal — Educação Digital contra Golpes Online (Timóteo/MG)
 
-   PALETA (decisão D8) — todos os contrastes verificados:
-     texto principal   #14201F sobre #FFFFFF .......... 16,7:1
-     texto secundário  #4A5A58 sobre #FFFFFF ..........  7,3:1
-     texto em botão    #FFFFFF sobre #0B5D57 ..........  7,7:1
-     texto no rodapé   #FFFFFF sobre #0B3B37 .......... 12,4:1
+   PALETA "violeta vivo" (decisão D8) — contrastes verificados por script
+   (`npm run contraste`). Todos os pares aprovados.
+
+     texto principal   #1B1233 sobre #FFFFFF .......... 17,8:1
+     texto secundário  #4F4666 sobre #FFFFFF ..........  8,8:1
+     títulos / botões  #5B21B6 sobre #FFFFFF ..........  9,0:1
+     texto em botão    #FFFFFF sobre #5B21B6 ..........  9,0:1
      aviso             #8A3E00 sobre #FFF6E5 ..........  7,1:1
-     borda estrutural  #6B8F8B sobre #FFFFFF ..........  3,5:1
-     foco (azul)       #0B5FFF sobre #FFFFFF ..........  5,1:1
+     borda estrutural  #7C6BA8 sobre #FFFFFF ..........  4,6:1
+     rodapé            #FFFFFF sobre #2E1065 .......... 15,2:1
+     foco em fundo claro  #5B21B6 .....................  9,0:1
+     foco sobre o rodapé  #FFD400 ..................... 10,7:1
 
    Regras que a paleta respeita:
    - Nenhuma informação é transmitida SÓ por cor (sempre há texto ou rótulo).
@@ -22,16 +26,16 @@
 
 :root {
   /* Texto */
-  --tinta: #14201f;
-  --tinta-suave: #4a5a58;
+  --tinta: #1b1233;
+  --tinta-suave: #4f4666;
 
   /* Superfícies */
   --papel: #ffffff;
-  --fundo: #f1f6f5;
-  --cinza: #eff4f3;
+  --fundo: #f5f3ff;
+  --cinza: #f1eefb;
 
-  /* Cor principal (ações e bordas) */
-  --primaria: #0b5d57;
+  /* Cor principal (ações, cabeçalho, bordas) */
+  --primaria: #5b21b6;
   --primaria-texto: #ffffff;
 
   /* Avisos */
@@ -39,12 +43,13 @@
   --alerta-fundo: #fff6e5;
 
   /* Estrutura */
-  --borda: #6b8f8b;
-  --rodape: #0b3b37;
+  --borda: #7c6ba8;
+  --rodape: #2e1065;
   --rodape-texto: #ffffff;
 
   /* Foco */
-  --foco: #0b5fff;
+  --foco: #5b21b6;
+  --foco-claro: #ffd400;
 
   --base: 20px;
   --raio: 12px;
@@ -65,6 +70,7 @@ body.alto-contraste {
   --rodape: #000000;
   --rodape-texto: #ffffff;
   --foco: #ffd400;
+  --foco-claro: #ffd400;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -111,7 +117,8 @@ a { color: var(--tinta); }
 .pular:focus { left: .5rem; top: .5rem; }
 
 /* ------------------------------- Cabeçalho ------------------------------ */
-.cabecalho { background: var(--papel); border-bottom: 4px solid var(--primaria); }
+/* Barra superior colorida: é o maior bloco de cor da página. */
+.cabecalho { background: var(--primaria); }
 
 .topo {
   display: flex;
@@ -124,11 +131,22 @@ a { color: var(--tinta); }
 }
 
 .marca { display: block; text-decoration: none; }
-.marca-nome { display: block; font-weight: 700; font-size: 1.15rem; color: var(--primaria); }
-.marca-sub { display: block; font-size: .8rem; color: var(--tinta-suave); }
+.marca-nome {
+  display: block;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--primaria-texto);
+}
+.marca-sub {
+  display: block;
+  font-size: .8rem;
+  font-weight: 400;
+  color: var(--primaria-texto);
+}
 
 .acess { display: flex; gap: .5rem; flex-wrap: wrap; }
 
+/* Botões "fantasma": o fundo é o próprio cabeçalho colorido. */
 .btn-acess {
   min-width: 44px;
   min-height: 44px;
@@ -136,14 +154,18 @@ a { color: var(--tinta); }
   font-size: 1rem;
   font-weight: 700;
   font-family: inherit;
-  background: var(--papel);
-  color: var(--primaria);
-  border: 2px solid var(--primaria);
+  background: transparent;
+  color: var(--primaria-texto);
+  border: 2px solid var(--primaria-texto);
   border-radius: 8px;
   cursor: pointer;
 }
 
-.menu { border-top: 2px solid var(--borda); }
+/* Barra de menu branca, fechada por uma linha na cor principal. */
+.menu {
+  background: var(--papel);
+  border-bottom: 4px solid var(--primaria);
+}
 .menu ul {
   list-style: none;
   display: flex;
@@ -165,6 +187,9 @@ a { color: var(--tinta); }
   color: var(--primaria-texto);
 }
 
+/* Sobre o cabeçalho colorido o anel de foco precisa ser claro. */
+.cabecalho :focus-visible { outline-color: var(--primaria-texto); }
+
 /* -------------------------------- Conteúdo ------------------------------ */
 /* Aviso: parece aviso, não botão (correção validada nos wireframes). */
 .faixa-alerta {
@@ -185,8 +210,8 @@ a { color: var(--tinta); }
   background: var(--papel);
 }
 
-h1 { font-size: 1.6rem; line-height: 1.3; margin: 0 0 .5rem; }
-h2 { font-size: 1.25rem; margin: 1.75rem 0 .5rem; }
+h1 { font-size: 1.7rem; line-height: 1.3; margin: 0 0 .5rem; color: var(--primaria); }
+h2 { font-size: 1.3rem; margin: 1.75rem 0 .5rem; color: var(--primaria); }
 h3 { font-size: 1.05rem; margin: 0 0 .25rem; }
 p { margin: 0 0 1rem; }
 .intro { font-size: 1.05rem; color: var(--tinta-suave); }
@@ -329,5 +354,5 @@ summary {
 .rodape ul { list-style: none; padding: 0; margin: 0 0 1rem; display: flex; flex-wrap: wrap; gap: 1rem; }
 .rodape p { margin: .35rem 0; font-size: .9rem; }
 
-/* O foco azul não contrasta sobre o rodapé escuro — aqui usa amarelo. */
-.rodape :focus-visible { outline-color: #ffd400; }
+/* O anel de foco da cor principal sumiria sobre o rodapé escuro. */
+.rodape :focus-visible { outline-color: var(--foco-claro); }

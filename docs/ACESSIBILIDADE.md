@@ -191,25 +191,32 @@ Toda página de golpe e tutorial responde, nesta ordem:
 
 ### 8.1 Paleta adotada (resolve a decisão D8)
 
-Paleta em **verde-petróleo**, que transmite confiança sem imitar a identidade de bancos ou de
-governo. O **âmbar** fica reservado para avisos, e o **vermelho não é usado como cor principal**:
-ele já significa "perigo" e prejudica quem tem daltonismo.
+Paleta **violeta vivo**, escolhida por ser vibrante e distintiva sem imitar a identidade de bancos
+ou de governo. O **âmbar** fica reservado para avisos, e o **vermelho não é usado como cor
+principal**: ele já significa "perigo" e prejudica quem tem daltonismo.
+
+O impacto visual vem do uso da cor em **blocos grandes** (cabeçalho colorido, títulos coloridos,
+botões cheios), e não de detalhes — porque manter 7:1 com texto branco exige cores escuras.
 
 | Token | Cor | Uso | Contraste verificado |
 |---|---|---|---|
-| `--tinta` | `#14201F` | Texto principal | **16,7:1** sobre branco |
-| `--tinta-suave` | `#4A5A58` | Texto secundário | **7,3:1** sobre branco |
-| `--primaria` | `#0B5D57` | Botões, bordas, ações | **7,7:1** sobre branco |
-| `--primaria-texto` | `#FFFFFF` | Texto sobre a cor principal | **7,7:1** |
+| `--tinta` | `#1B1233` | Texto principal | **17,8:1** sobre branco |
+| `--tinta-suave` | `#4F4666` | Texto secundário | **8,8:1** sobre branco |
+| `--primaria` | `#5B21B6` | Cabeçalho, títulos, botões, bordas | **9,0:1** sobre branco |
+| `--primaria-texto` | `#FFFFFF` | Texto sobre a cor principal | **9,0:1** |
 | `--acento` | `#8A3E00` | Rótulo e link de aviso | **7,1:1** sobre `#FFF6E5` |
 | `--alerta-fundo` | `#FFF6E5` | Fundo da faixa de aviso | — |
-| `--borda` | `#6B8F8B` | Separadores estruturais | **3,5:1** sobre branco |
-| `--rodape` | `#0B3B37` | Fundo do rodapé | **12,4:1** com texto branco |
-| `--foco` | `#0B5FFF` | Anel de foco em fundo claro | **5,1:1** sobre branco |
-| `--foco` (escuro) | `#FFD400` | Anel de foco sobre o rodapé | **8,7:1** sobre o rodapé |
+| `--borda` | `#7C6BA8` | Separadores estruturais | **4,6:1** sobre branco |
+| `--rodape` | `#2E1065` | Fundo do rodapé | **15,2:1** com texto branco |
+| `--foco` | `#5B21B6` | Anel de foco em fundo claro | **9,0:1** sobre branco |
+| `--foco-claro` | `#FFD400` | Anel de foco sobre o rodapé | **10,7:1** sobre o rodapé |
+
+> **Regra prática:** para "chamar atenção" com cor, aumente a **área colorida** (blocos, faixas,
+> botões cheios), não a **claridade** da cor. Cores claras derrubam o contraste e excluem quem
+> enxerga pouco.
 
 **Verificação automatizada:** o comando `npm run contraste` (dentro de `site/`) checa
-**16 pares de cor** e falha se algum ficar abaixo do piso do projeto. Deve ser executado antes
+**17 pares de cor** e falha se algum ficar abaixo do piso do projeto. Deve ser executado antes
 de qualquer publicação.
 
 **Regra de ouro da cor:** nenhuma informação é transmitida **só por cor**. Todo estado, alerta ou
@@ -221,7 +228,7 @@ erro tem também texto ou rótulo.
 
 ### 9.1 Automatizados (rápidos, insuficientes)
 - **axe DevTools** / **Lighthouse** em todas as páginas → zero erros críticos.
-- `npm run contraste` (em `site/`) → confere os 16 pares de cor da paleta.
+- `npm run contraste` (em `site/`) → confere os 17 pares de cor da paleta.
 - Validador de HTML.
 - **Atenção:** ferramentas automáticas detectam ~30–40% dos problemas. Nunca aprovar só com elas.
 

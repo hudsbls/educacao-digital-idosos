@@ -12,20 +12,22 @@
  */
 
 const CORES = {
-  tinta: '#14201f',
-  tintaSuave: '#4a5a58',
+  // Paleta "violeta vivo"
+  tinta: '#1b1233',
+  tintaSuave: '#4f4666',
   papel: '#ffffff',
-  fundo: '#f1f6f5',
-  cinza: '#eff4f3',
-  primaria: '#0b5d57',
+  fundo: '#f5f3ff',
+  cinza: '#f1eefb',
+  primaria: '#5b21b6',
   primariaTexto: '#ffffff',
   acento: '#8a3e00',
   alertaFundo: '#fff6e5',
-  borda: '#6b8f8b',
-  rodape: '#0b3b37',
+  borda: '#7c6ba8',
+  rodape: '#2e1065',
   rodapeTexto: '#ffffff',
-  foco: '#0b5fff',
-  focoEscuro: '#ffd400',
+  foco: '#5b21b6',
+  focoClaro: '#ffd400',
+  // Neutros usados no modo de alto contraste
   preto: '#000000',
   branco: '#ffffff',
 };
@@ -34,22 +36,23 @@ const PARES = [
   // Modo normal
   { nome: 'Texto principal sobre branco', frente: 'tinta', fundo: 'papel', minimo: 7 },
   { nome: 'Texto secundário sobre branco', frente: 'tintaSuave', fundo: 'papel', minimo: 7 },
-  { nome: 'Texto secundário sobre cinza', frente: 'tintaSuave', fundo: 'cinza', minimo: 4.5 },
+  { nome: 'Texto secundário sobre cinza', frente: 'tintaSuave', fundo: 'cinza', minimo: 7 },
+  { nome: 'Títulos sobre branco', frente: 'primaria', fundo: 'papel', minimo: 7 },
   { nome: 'Texto do botão sobre a cor principal', frente: 'primariaTexto', fundo: 'primaria', minimo: 7 },
   { nome: 'Cor principal sobre branco (bordas)', frente: 'primaria', fundo: 'papel', minimo: 3 },
   { nome: 'Texto do aviso sobre o fundo do aviso', frente: 'tinta', fundo: 'alertaFundo', minimo: 7 },
   { nome: 'Rótulo de aviso sobre o fundo do aviso', frente: 'acento', fundo: 'alertaFundo', minimo: 7 },
   { nome: 'Borda estrutural sobre branco', frente: 'borda', fundo: 'papel', minimo: 3 },
+  { nome: 'Borda estrutural sobre cinza', frente: 'borda', fundo: 'cinza', minimo: 3 },
   { nome: 'Texto do rodapé sobre o rodapé', frente: 'rodapeTexto', fundo: 'rodape', minimo: 7 },
   { nome: 'Anel de foco sobre branco', frente: 'foco', fundo: 'papel', minimo: 3 },
-  { nome: 'Anel de foco sobre o rodapé escuro', frente: 'focoEscuro', fundo: 'rodape', minimo: 3 },
-  { nome: 'Título da marca sobre branco', frente: 'primaria', fundo: 'papel', minimo: 7 },
-  { nome: 'Borda estrutural sobre cinza', frente: 'borda', fundo: 'cinza', minimo: 3 },
+  { nome: 'Anel de foco sobre o cabeçalho colorido', frente: 'primariaTexto', fundo: 'primaria', minimo: 3 },
+  { nome: 'Anel de foco sobre o rodapé escuro', frente: 'focoClaro', fundo: 'rodape', minimo: 3 },
 
   // Modo "Mais contraste" (preto, branco e amarelo)
   { nome: '[alto contraste] Texto sobre preto', frente: 'branco', fundo: 'preto', minimo: 7 },
   { nome: '[alto contraste] Texto de botão sobre branco', frente: 'preto', fundo: 'branco', minimo: 7 },
-  { nome: '[alto contraste] Anel de foco sobre preto', frente: 'focoEscuro', fundo: 'preto', minimo: 3 },
+  { nome: '[alto contraste] Anel de foco sobre preto', frente: 'focoClaro', fundo: 'preto', minimo: 3 },
 ];
 
 function luminancia(hex) {
