@@ -169,18 +169,27 @@ details[open] summary { margin-bottom: .5rem; }
   margin: 1.25rem 0;
 }
 .botao-grande.secundario { background: var(--papel); color: var(--tinta); }
+/* Linha de apoio dentro do botão: esclarece que a ajuda não é só para emergência. */
+.botao-grande .botao-sub {
+  display: block;
+  font-size: .9rem;
+  font-weight: 500;
+  margin-top: .4rem;
+}
 
 .card {
   display: block;
   border: 3px solid var(--linha);
   border-radius: 12px;
   padding: 1rem;
-  margin: .75rem 0;
+  margin: 1.25rem 0;
   text-decoration: none;
   background: var(--papel);
 }
 .card p { margin: 0; color: var(--tinta-suave); }
-.card .canal { display: inline-block; font-size: .8rem; font-weight: 700; border: 2px solid var(--linha); border-radius: 999px; padding: .1rem .6rem; margin-bottom: .4rem; }
+/* O canal é informação, não uma aba. Antes era um chip com borda arredondada
+   e as pessoas o liam como filtro. Agora é texto simples com o prefixo "Canal:". */
+.card .canal { display: block; font-size: .85rem; font-weight: 600; color: var(--tinta-suave); margin-bottom: .25rem; }
 
 .place {
   border: 2px dashed var(--tinta-suave);
@@ -213,7 +222,7 @@ details[open] summary { margin-bottom: .5rem; }
   padding: 1rem 1rem 1rem 3.75rem;
   border: 2px solid var(--linha);
   border-radius: 12px;
-  margin: .6rem 0;
+  margin: .9rem 0;
   background: var(--papel);
 }
 .passos li::before {
@@ -259,7 +268,7 @@ details[open] summary { margin-bottom: .5rem; }
   cursor: pointer;
 }
 
-.filtros { display: flex; gap: .5rem; flex-wrap: wrap; margin: 0 0 1rem; padding: 0; list-style: none; }
+.filtros { display: flex; gap: .75rem; flex-wrap: wrap; margin: 0 0 1rem; padding: 0; list-style: none; }
 .filtros button {
   min-height: 44px;
   padding: .4rem .9rem;
@@ -277,7 +286,7 @@ details[open] summary { margin-bottom: .5rem; }
 .meta { font-size: .85rem; color: var(--tinta-suave); }
 .voltar { display: inline-block; margin-bottom: .5rem; font-weight: 600; }
 
-.acoes { display: flex; gap: .6rem; flex-wrap: wrap; margin: 1rem 0; }
+.acoes { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0; }
 .acoes a, .acoes button {
   min-height: 44px;
   display: inline-flex;

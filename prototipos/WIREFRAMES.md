@@ -143,15 +143,15 @@ Seção 7. **Ainda sem validação com pessoas reais** — são hipóteses a con
 | Faixa de aviso | Bloco preto (parecia botão) | Faixa com bordas e o rótulo **"Atenção:"** |
 | Jargões | "transcrição", "contestar a operação", "violação de direitos" | "texto do vídeo", "diga que você não fez aquela compra", "desrespeito aos direitos" |
 | Rodapé | "Acessibilidade" / "Glossário" | "Como usar este site" / "Palavras explicadas" |
+| 190 × 197 | Ambos apresentados como "polícia" | **190** = emergência agora · **197** = denúncia depois, com calma |
+| Rótulo de canal | Chip arredondado (parecia aba/filtro) | Texto simples com prefixo **"Canal: Telefone"** |
+| Espaçamentos | Cartões e botões muito próximos | Margens entre cartões e espaçamento entre botões ampliados |
+| Botão de ajuda | "Preciso de ajuda **agora**" (parecia só emergência) | **"Preciso de ajuda"** + subtítulo explicativo |
 
-### Pendências (prioridade média e baixa)
+### Pendências restantes (prioridade baixa)
 
 | # | Pendência | Prioridade |
 |---|---|---|
-| 6 | Explicar a diferença entre 190 e 197 | Média |
-| 7 | Chip de canal não pode parecer aba (ex.: `Canal: Telefone`) | Média |
-| 8 | Aumentar o espaçamento entre cartões e entre botões | Média |
-| 9 | Subtítulo no botão de ajuda (resolve a ambiguidade do "agora") | Média |
 | 11 | Alternativa sem WhatsApp (endereço do site + QR code impresso) | Baixa |
 | 12 | Reavaliar "Oficinas" e "Sobre" no menu | Baixa |
 
@@ -166,3 +166,4 @@ Seção 7. **Ainda sem validação com pessoas reais** — são hipóteses a con
 |---|---|---|
 | 0.1 | 2026-09-20 | Versão inicial: 4 telas, roteiro de teste e decisões embutidas |
 | 0.2 | 2026-09-20 | Correções de prioridade alta aplicadas após a simulação (rótulos de acessibilidade, jargões, faixa de aviso, ação de envio) |
+| 0.3 | 2026-09-20 | Correções de prioridade média aplicadas (190 × 197, rótulo de canal, espaçamentos, subtítulo do botão de ajuda) |
