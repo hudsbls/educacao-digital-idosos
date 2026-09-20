@@ -6,7 +6,8 @@ Projeto de educação digital para pessoas idosas em **Timóteo/MG**, com foco n
 
 ## Status
 
-Fase de **planejamento e definição de arquitetura**. Nenhum desenvolvimento de software iniciado.
+**Incremento I0 concluído** — portal em Astro com layout acessível, paleta e tipografia definidas,
+2 golpes publicados (conteúdo provisório) e página de ajuda. Build estático validado.
 
 ## Documentação
 
@@ -14,6 +15,12 @@ Fase de **planejamento e definição de arquitetura**. Nenhum desenvolvimento de
 - [`docs/ACESSIBILIDADE.md`](docs/ACESSIBILIDADE.md) — padrão WCAG 2.2 AA, checklist, linguagem simples e protocolo de testes.
 - [`docs/GESTAO-E-REQUISITOS.md`](docs/GESTAO-E-REQUISITOS.md) — abordagem de gestão, requisitos, diagramas, planejamento e plano de evidências (roteiro do Trabalho Final).
 - [`docs/cronograma.html`](docs/cronograma.html) — cronograma acessível das 13 etapas (abra no navegador e imprima em PDF).
+- [`docs/PROMPT-CONTEXTO.md`](docs/PROMPT-CONTEXTO.md) — resumo do projeto em um parágrafo e prompt de contexto para ferramentas de IA.
+
+## Portal
+
+- [`site/README.md`](site/README.md) — como rodar, estrutura e como adicionar um golpe.
+- Para ver o site: `cd site`, `npm run build`, `npm run preview`.
 
 ## Protótipo
 
