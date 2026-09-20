@@ -114,6 +114,11 @@ peça que a pessoa realize a tarefa e observe.
 | W5 | O menu com 5 itens é demais? | Navegação principal |
 | W6 | A transcrição precisa vir antes do vídeo? | Ordem do conteúdo |
 | W7 | A linguagem está simples o bastante? | Revisão de texto geral |
+| W8 | Os controles de acessibilidade (`A−`/`A+`/Contraste) são compreensíveis? | Rótulos e formato do controle |
+
+> **Antes do teste real:** existe uma [simulação com 8 personas](SIMULACAO-TESTE.md) que antecipa
+> hipóteses e problemas. Ela serve para **treinar os facilitadores** e **não substitui** o teste
+> com pessoas reais — ver o aviso no próprio documento.
 
 ---
 
