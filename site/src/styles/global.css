@@ -8,7 +8,7 @@
      texto secundário  #4F4666 sobre #FFFFFF ..........  8,8:1
      títulos / botões  #5B21B6 sobre #FFFFFF ..........  9,0:1
      texto em botão    #FFFFFF sobre #5B21B6 ..........  9,0:1
-     aviso             #8A3E00 sobre #FFF6E5 ..........  7,1:1
+     aviso             #FFFFFF sobre #991B1B ..........  8,3:1
      borda estrutural  #7C6BA8 sobre #FFFFFF ..........  4,6:1
      rodapé            #FFFFFF sobre #2E1065 .......... 15,2:1
      foco em fundo claro  #5B21B6 .....................  9,0:1
@@ -16,8 +16,9 @@
 
    Regras que a paleta respeita:
    - Nenhuma informação é transmitida SÓ por cor (sempre há texto ou rótulo).
-   - O vermelho não é usado como cor principal: já significa "perigo" e
-     prejudica quem tem daltonismo. O âmbar fica reservado para avisos.
+   - O vermelho é usado APENAS na faixa de aviso de segurança, nunca como cor
+     principal, e sempre acompanhado do selo textual ("Atenção" ou "Urgente").
+     Assim o alerta não depende da cor para ser compreendido.
    - O modo "Mais contraste" troca apenas as variáveis abaixo.
 
    Demais restrições em docs/ACESSIBILIDADE.md: fonte base 20px,
@@ -38,9 +39,9 @@
   --primaria: #5b21b6;
   --primaria-texto: #ffffff;
 
-  /* Avisos */
-  --acento: #8a3e00;
-  --alerta-fundo: #fff6e5;
+  /* Aviso de segurança */
+  --alerta: #991b1b;
+  --alerta-texto: #ffffff;
 
   /* Estrutura */
   --borda: #7c6ba8;
@@ -64,8 +65,8 @@ body.alto-contraste {
   --cinza: #111111;
   --primaria: #ffffff;
   --primaria-texto: #000000;
-  --acento: #ffd400;
-  --alerta-fundo: #000000;
+  --alerta: #ffd400;
+  --alerta-texto: #000000;
   --borda: #ffffff;
   --rodape: #000000;
   --rodape-texto: #ffffff;
@@ -191,17 +192,28 @@ a { color: var(--tinta); }
 .cabecalho :focus-visible { outline-color: var(--primaria-texto); }
 
 /* -------------------------------- Conteúdo ------------------------------ */
-/* Aviso: parece aviso, não botão (correção validada nos wireframes). */
+/* Faixa de aviso de segurança — o alerta mais forte da página.
+   O selo textual ("Atenção"/"Urgente") é o que carrega o significado:
+   a cor apenas reforça. Foi o selo que resolveu o problema encontrado nos
+   wireframes, em que a faixa escura parecia um botão. */
 .faixa-alerta {
-  background: var(--alerta-fundo);
-  color: var(--tinta);
-  border-top: 2px solid var(--acento);
-  border-bottom: 2px solid var(--acento);
-  padding: .9rem 0;
+  background: var(--alerta);
+  color: var(--alerta-texto);
+  padding: 1rem 0;
 }
-.faixa-alerta p { margin: 0; font-weight: 600; }
-.faixa-alerta strong { color: var(--acento); }
-.faixa-alerta a { color: var(--acento); text-decoration: underline; }
+.faixa-alerta p { margin: 0; font-weight: 700; }
+.faixa-alerta__selo {
+  display: inline-block;
+  background: var(--alerta-texto);
+  color: var(--alerta);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  padding: .15rem .65rem;
+  border-radius: 6px;
+  margin-right: .5rem;
+}
+.faixa-alerta a { color: var(--alerta-texto); text-decoration: underline; }
 
 .pagina {
   max-width: 44rem;

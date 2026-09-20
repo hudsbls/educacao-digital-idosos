@@ -192,8 +192,8 @@ Toda página de golpe e tutorial responde, nesta ordem:
 ### 8.1 Paleta adotada (resolve a decisão D8)
 
 Paleta **violeta vivo**, escolhida por ser vibrante e distintiva sem imitar a identidade de bancos
-ou de governo. O **âmbar** fica reservado para avisos, e o **vermelho não é usado como cor
-principal**: ele já significa "perigo" e prejudica quem tem daltonismo.
+ou de governo. O **vermelho é reservado exclusivamente para a faixa de aviso de segurança** —
+nunca como cor principal — porque já significa "perigo" e prejudica quem tem daltonismo.
 
 O impacto visual vem do uso da cor em **blocos grandes** (cabeçalho colorido, títulos coloridos,
 botões cheios), e não de detalhes — porque manter 7:1 com texto branco exige cores escuras.
@@ -204,12 +204,17 @@ botões cheios), e não de detalhes — porque manter 7:1 com texto branco exige
 | `--tinta-suave` | `#4F4666` | Texto secundário | **8,8:1** sobre branco |
 | `--primaria` | `#5B21B6` | Cabeçalho, títulos, botões, bordas | **9,0:1** sobre branco |
 | `--primaria-texto` | `#FFFFFF` | Texto sobre a cor principal | **9,0:1** |
-| `--acento` | `#8A3E00` | Rótulo e link de aviso | **7,1:1** sobre `#FFF6E5` |
-| `--alerta-fundo` | `#FFF6E5` | Fundo da faixa de aviso | — |
+| `--alerta` | `#991B1B` | Fundo da faixa de aviso de segurança | **8,3:1** com texto branco |
+| `--alerta-texto` | `#FFFFFF` | Texto e selo da faixa de aviso | **8,3:1** |
 | `--borda` | `#7C6BA8` | Separadores estruturais | **4,6:1** sobre branco |
 | `--rodape` | `#2E1065` | Fundo do rodapé | **15,2:1** com texto branco |
 | `--foco` | `#5B21B6` | Anel de foco em fundo claro | **9,0:1** sobre branco |
 | `--foco-claro` | `#FFD400` | Anel de foco sobre o rodapé | **10,7:1** sobre o rodapé |
+
+**Faixa de aviso — o elemento de maior alerta da página.** O significado é carregado pelo
+**selo textual** ("Atenção" na página inicial, "Urgente" na página de ajuda); a cor apenas
+reforça. Isso resolve dois problemas de uma vez: quem não distingue cores continua entendendo,
+e a faixa deixa de parecer um botão (problema encontrado no teste de wireframes).
 
 > **Regra prática:** para "chamar atenção" com cor, aumente a **área colorida** (blocos, faixas,
 > botões cheios), não a **claridade** da cor. Cores claras derrubam o contraste e excluem quem
