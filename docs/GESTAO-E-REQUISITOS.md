@@ -356,6 +356,23 @@ frágil e perceptível à banca.
 > Pasta sugerida `evidencias/` com subpastas de coleta bruta (restrita) e uma seleção **anonimizada**
 > para o relatório. Ver estrutura em `ARQUITETURA.md`, Seção 18.
 
+### 5.4 Segurança de credenciais e acessos
+
+Regras obrigatórias para toda a equipe:
+
+- **Nunca** compartilhar senhas, tokens ou códigos de verificação em chats, e-mail, prints, grupos
+  ou documentos do projeto. Credencial vazada é credencial queimada — deve ser revogada na hora.
+- **Cada pessoa usa a própria conta.** Não compartilhar login e senha entre membros da equipe.
+- **Verificação em duas etapas** ativada em todas as contas do projeto: GitHub, YouTube e e-mail
+  institucional.
+- **Tokens têm prazo de validade.** O token de acesso ao GitHub criado em 20/09/2026 expira em
+  **cerca de 90 dias (≈ 19/12/2026)**. Quando expirar: gerar um novo em
+  `github.com/settings/tokens` com os escopos `repo`, `workflow` e `read:org`, e reconectar.
+- **Se um token vazar:** revogar imediatamente em `github.com/settings/tokens` e gerar outro.
+  Revogar leva menos de um minuto e elimina o risco.
+- Este conteúdo é, ele mesmo, **material de oficina**: é exatamente o que ensinamos ao público
+  (nunca informar senha ou código a ninguém, nem por telefone nem por mensagem).
+
 ---
 
 ## 6. Aderência aos critérios de avaliação (seção 6 do roteiro)
