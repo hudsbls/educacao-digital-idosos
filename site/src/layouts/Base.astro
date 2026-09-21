@@ -77,6 +77,30 @@ const ehAtual = (prefixo: string) =>
       </div>
     </footer>
 
+    <!-- Navegação inferior: visível só no celular (mobile first). -->
+    <nav class="nav-inferior" aria-label="Menu inferior">
+      <ul>
+        <li>
+          <a href="/" aria-current={ehAtual('/') ? 'page' : undefined}>
+            <Icone nome="casa" tamanho={26} />
+            Início
+          </a>
+        </li>
+        <li>
+          <a href="/golpes/" aria-current={ehAtual('/golpes/') ? 'page' : undefined}>
+            <Icone nome="lista" tamanho={26} />
+            Golpes
+          </a>
+        </li>
+        <li>
+          <a href="/ajuda/" aria-current={ehAtual('/ajuda/') ? 'page' : undefined}>
+            <Icone nome="duvida" tamanho={26} />
+            Ajuda
+          </a>
+        </li>
+      </ul>
+    </nav>
+
     <script>
       // Controles de acessibilidade: aumentam a letra e alternam alto contraste.
       // A preferência é lembrada entre as páginas (requisito US-03).

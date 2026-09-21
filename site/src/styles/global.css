@@ -497,3 +497,80 @@ summary {
 .rodape p { margin: .4rem 0; font-size: .92rem; }
 
 .rodape :focus-visible { outline-color: var(--foco-claro); }
+
+/* =====================================================================
+   MOBILE FIRST
+
+   No celular, a navegação principal fica embaixo (alcance do polegar),
+   como em aplicativos. No desktop, ela volta para o topo.
+   Só uma das duas fica visível por vez, então leitores de tela nunca
+   encontram dois menus iguais — a que está oculta sai da árvore de
+   acessibilidade.
+   ===================================================================== */
+
+.nav-inferior {
+  display: flex;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 40;
+  background: var(--papel);
+  border-top: 3px solid var(--primaria);
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+.nav-inferior ul {
+  list-style: none;
+  display: flex;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.nav-inferior li { flex: 1 1 0; }
+.nav-inferior a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .25rem;
+  min-height: 60px;
+  padding: .5rem .25rem;
+  font-size: .8rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--tinta);
+}
+.nav-inferior a[aria-current="page"] {
+  background: var(--primaria);
+  color: var(--primaria-texto);
+}
+
+@media (min-width: 40em) {
+  /* Desktop: menu no topo; a barra inferior desaparece. */
+  .nav-inferior { display: none; }
+}
+
+@media (max-width: 39.99em) {
+  /* Celular: o menu do topo é substituído pela barra inferior. */
+  .menu { display: none; }
+
+  /* Rótulo "Acessibilidade:" fica só para leitores de tela, para não
+     ocupar altura; os botões passam a dividir a largura. */
+  .acess-grupo { width: 100%; }
+  .acess { width: 100%; }
+  .btn-acess { flex: 1 1 0; text-align: center; padding-left: .4rem; padding-right: .4rem; }
+  .acess-rotulo {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  /* Espaço para o conteúdo não ficar escondido atrás da barra fixa. */
+  body { padding-bottom: 5.5rem; }
+
+  /* Âncoras não param embaixo da barra (WCAG 2.4.11). */
+  html { scroll-padding-bottom: 6rem; }
+}

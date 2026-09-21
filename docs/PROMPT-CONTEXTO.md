@@ -89,6 +89,10 @@ pede senha, dinheiro ou instalação de aplicativos.
 de confiança, dourado para destaque, cartões em tons pastel com ícone em evidência, passos
 numerados coloridos e caixa de acolhimento.
 
+**Mobile first.** O desenho parte do celular e só depois cresce para telas maiores. A navegação
+principal fica **fixa embaixo**, no alcance do polegar (**Início · Golpes · Ajuda**); a partir de
+640px ela volta para o topo. Botões ocupam a largura, alvos de 48px, nada depende de hover.
+
 O critério de sucesso não é "bonito": é **reduzir a vergonha de quem caiu em golpe** e permitir que
 alguém com baixa visão encontre ajuda sozinho. Um visual de "sistema oficial" intimida justamente
 quem mais precisa de ajuda.
@@ -132,6 +136,7 @@ sem sombras duras nem gradientes.
 6. **Etiquetas** de duração, legenda e texto do vídeo.
 7. **Caixa de acolhimento** azul-clara: "Você não está sozinho(a)."
 8. **Rodapé** azul profundo com filete dourado.
+9. **Navegação inferior** fixa no celular (Início · Golpes · Ajuda), com ícone e rótulo.
 
 ### Restrições que não se negociam
 
@@ -156,6 +161,4 @@ sem sombras duras nem gradientes.
 ### O que ainda falta no visual
 
 1. **Ilustrações** de pessoas idosas (o elemento mais marcante da referência e o único ainda ausente).
-2. **Navegação inferior no celular** — decidir se entra, com cuidado para não duplicar a navegação
-   do topo para leitores de tela.
-3. **Desenho da marca** — hoje é texto; pode virar um símbolo gráfico próprio.
+2. **Desenho da marca** — hoje é texto; pode virar um símbolo gráfico próprio.

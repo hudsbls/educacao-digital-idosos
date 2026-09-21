@@ -241,6 +241,7 @@ projeto de não rastrear usuários. Há fallback para as fontes do sistema.
 | Cartões pastel com ícone em destaque | Ícone de 52px | Escaneamento visual rápido |
 | Passos com cores diferentes | 4 cores em ciclo | Ajuda a localizar onde se parou; o **número** é a informação |
 | Caixa de acolhimento | — | Reduz a vergonha de quem caiu em golpe |
+| Navegação (mobile first) | Barra fixa embaixo no celular; menu no topo a partir de 640px | Alcance do polegar; só uma das duas fica visível, então não há menu duplicado para leitores de tela |
 | Alvos de toque | 48px (acima do mínimo de 44px) | Toque impreciso é comum |
 | Altura de linha | 1,65 | Mais respiro na leitura |
 | Ícones | SVG embutido, sempre decorativo | Reforçam o texto, nunca o substituem |
